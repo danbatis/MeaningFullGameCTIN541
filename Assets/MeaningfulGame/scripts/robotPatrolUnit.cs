@@ -12,6 +12,9 @@ public class robotPatrolUnit : MonoBehaviour {
 	private int currentPatrolPoint=0;
 
 	public float patrolTime=5.0f;
+	public float blindSearchTime=5.0f;
+	public bool blindSearch = false;
+	private float myTime;
 
 	public enum hunterModes{
 		patrol,
@@ -22,10 +25,15 @@ public class robotPatrolUnit : MonoBehaviour {
 
 	public bool busy = false;
 
+	private robotVision myRobotVisionScript;
+	private BoxCollider myBoxCollider;
+
 	// Use this for initialization
 	void Start () {
 		//anim = GetComponent<Animator>();
 		navAgent = GetComponent<NavMeshAgent> ();
+		myRobotVisionScript = GetComponent<robotVision> ();
+		myBoxCollider = GetComponent<BoxCollider> ();
 
 		if (target == null) {
 			if (GameObject.FindGameObjectsWithTag ("Player")!=null)
@@ -47,37 +55,56 @@ public class robotPatrolUnit : MonoBehaviour {
 			if (!navAgent.pathPending) {
 				if (navAgent.remainingDistance <= navAgent.stoppingDistance) {
 					if (!navAgent.hasPath || navAgent.velocity.sqrMagnitude == 0f) {
-						// Done
-						Debug.Log ("arrived at destination: " + navAgent.pathStatus.ToString ());
 						switch (hunterMode) {
-							case hunterModes.patrol:
-								//patroll
-								StartCoroutine (PatrolNSeek ());
-								break;
-							case hunterModes.hunt:
-								//hunt
-								StartCoroutine (Attack());
-								break;
-							case hunterModes.fight:
+								case hunterModes.patrol:
+									//patroll
+									StartCoroutine (PatrolNSeek ());
+									break;
+								case hunterModes.hunt:
+									//hunt
+									if (Vector3.Distance (myTransform.position, target.position) > navAgent.stoppingDistance) {							
+										if (blindSearch) {
+											navAgent.SetDestination (target.position);
+										} else {
+											Debug.Log ("Lost subject, blindSearch started");
+											blindSearch = true;
+											myTime = 0.0f;
+										}
+									}
+									else{									
+										//End Game
+										Debug.Log ("Found and reached player, end game!");
+										Time.timeScale = 0;
+										//navAgent.SetDestination (spawnPoint);
+									}
+									break;
+								default:
+									Debug.Log ("Mode not implemented: " + hunterMode.ToString ());
+									navAgent.SetDestination (spawnPoint);
+									break;
 
-								//navAgent.SetDestination (spawnPoint);
-								break;
-							default:
-								Debug.Log ("Mode not implemented: " + hunterMode.ToString ());
-								navAgent.SetDestination (spawnPoint);
-								break;
 						}
 					}
 				}
 			}
 		}
+
+		if (blindSearch) {
+			myTime += Time.deltaTime;
+			if (myTime >= blindSearchTime) {
+				blindSearch = false;	
+				//Lost subject
+				Debug.Log ("Lost subject, returning to patrol pattern");
+				hunterMode = hunterModes.patrol;
+				navAgent.SetDestination (patrolPoints[currentPatrolPoint].position);
+				StartCoroutine (PatrolNSeek ());
+				myRobotVisionScript.enabled = false;
+				myBoxCollider.enabled = true;
+			}
+		}
 		//navAgent.pathStatus
 	}
 
-	public void Fight(){
-		hunterMode = hunterModes.hunt;
-		navAgent.SetDestination (target.position);
-	}
 
 	IEnumerator PatrolNSeek() {
 		busy = true;
@@ -89,18 +116,20 @@ public class robotPatrolUnit : MonoBehaviour {
 		navAgent.SetDestination (patrolPoints[currentPatrolPoint].position);
 	}
 
-	IEnumerator Attack() {
-		hunterMode = hunterModes.fight;
-		yield return new WaitForSeconds(patrolTime/2);
-		navAgent.SetDestination (target.position);
-	}
-
 	void OnTriggerEnter(Collider other){
 		Debug.Log (gameObject.name+"trigger with: "+other.gameObject.name);
+		if (other.gameObject.name == "player") {
+			myRobotVisionScript.enabled = true;
+			myBoxCollider.enabled = false;
+		}
 
 	}
 	void OnTriggerExit(Collider other){
 		Debug.Log (gameObject.name+"trigger out: "+other.gameObject.name);
+		if (other.gameObject.name == "player") {
+			myRobotVisionScript.enabled = false;
+			myBoxCollider.enabled = true;
+		}
 
 	}
 }
