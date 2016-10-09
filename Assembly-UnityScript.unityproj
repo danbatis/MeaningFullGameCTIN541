@@ -46,9 +46,17 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Furniture Pack 1 Free\Scripts\MouseOrbitZoom.js" />
+     <Compile Include="Assets\HexTech2\_Scripts\FollowXZ.js" />
+     <Compile Include="Assets\HexTech2\_Scripts\GMeshControl.js" />
+     <Compile Include="Assets\HexTech2\_Scripts\HexgridPointer.js" />
+     <Compile Include="Assets\HexTech2\_Scripts\MapControl.js" />
+     <Compile Include="Assets\HexTech2\_Scripts\MoveWithKeyboard.js" />
+     <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Top-Down Interiors\Origin\Tools\ShowFps.js" />
+     <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\AmbientObscurance.js" />
      <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\AntialiasingAsPostEffect.js" />
      <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Bloom.js" />
      <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\BloomAndLensFlares.js" />
+     <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Blur.js" />
      <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\CameraInfo.js" />
      <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\CameraMotionBlur.js" />
      <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\ColorCorrectionCurves.js" />
@@ -58,6 +66,7 @@
      <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\DepthOfField34.js" />
      <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\DepthOfFieldScatter.js" />
      <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\EdgeDetectEffectNormals.js" />
+     <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\FastBloom.js" />
      <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Fisheye.js" />
      <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\GlobalFog.js" />
      <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\NoiseAndGrain.js" />
@@ -67,6 +76,7 @@
      <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\ScreenOverlay.js" />
      <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\SunShafts.js" />
      <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\TiltShift.js" />
+     <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\TiltShiftHdr.js" />
      <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Tonemapping.js" />
      <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Triangles.js" />
      <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Vignetting.js" />
@@ -81,6 +91,7 @@
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
+     <None Include="Assets\MeaningfulGame\Raymond\Materials\Shaders\StandardVertex.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\ShowAlphaChannel.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\GlowConeTap.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
@@ -100,6 +111,7 @@
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\SSAA.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\RadialBlur.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldDX11.shader" />
+     <None Include="Assets\MeaningfulGame\Raymond\Extra Res\DogPack\Examples\Description.txt" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\ContrastComposite.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset3.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\FisheyeShader.shader" />
@@ -116,6 +128,7 @@
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderYUV.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\GlowEffectDownsample.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\CreaseApply.shader" />
+     <None Include="Assets\MeaningfulGame\Raymond\Extra Res\RetroLamps\Shaders\Lamps_rimShader_dust.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\ChromaticAberrationShader.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\GlobalFog.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
@@ -135,6 +148,7 @@
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter2.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableBlur.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\MotionBlurClear.shader" />
+     <None Include="Assets\MeaningfulGame\Raymond\Extra Res\Raw Mocap Data\Animations\_CompleteAnimationList.txt" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionEffect.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\GrayscaleEffect.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\SepiaToneEffect.shader" />
@@ -151,11 +165,14 @@
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\EdgeDetectNormals.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\PrepareSunShaftsBlur.shader" />
+     <None Include="Assets\MeaningfulGame\Raymond\Extra Res\RetroLamps\Shaders\Lamps_rimShader_specular.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\Blend.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\SimpleClear.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularDisplacement.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA3Console.shader" />
+     <None Include="Assets\MeaningfulGame\Raymond\Extra Res\RetroLamps\Shaders\Lamps_rimShader_simple.shader" />
+     <None Include="Assets\MeaningfulGame\Raymond\Extra Res\RetroLamps\Shaders\Lamps_rimShaderSpecEmi.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\EdgeDetectX.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
@@ -166,6 +183,12 @@
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity5/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{721F619A-FDDF-ABEA-DA59-CC1B433598C8}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
+      <Project>{E2B5728C-BFED-D20A-521A-145F0CE393BA}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
