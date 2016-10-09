@@ -1,9 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\mine\scripts\robotVision.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\MeaningfulGame\scripts\walkScript.cs">
     <Files>
-      <File FileName="Assets\mine\scripts\robotVision.cs" Line="21" Column="6" />
-      <File FileName="Assets\mine\scripts\robotPatrolUnit.cs" Line="1" Column="1" />
+      <File FileName="Assets\MeaningfulGame\scripts\MainComputerDoor.cs" Line="23" Column="29" />
+      <File FileName="Assets\MeaningfulGame\scripts\robotPatrolUnit.cs" Line="126" Column="3" />
+      <File FileName="Assets\MeaningfulGame\scripts\robotVision.cs" Line="1" Column="1" />
+      <File FileName="Assets\MeaningfulGame\scripts\walkScript.cs" Line="129" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
