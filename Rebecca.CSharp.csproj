@@ -72,6 +72,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\MeaningfulGame\scripts\MainComputerDoor.cs" />
+    <Compile Include="Assets\MeaningfulGame\scripts\ThirdPersonCamera.cs" />
+    <Compile Include="Assets\MeaningfulGame\scripts\autoWalkScript.cs" />
+    <Compile Include="Assets\MeaningfulGame\scripts\ghostHaunterPlayer.cs" />
+    <Compile Include="Assets\MeaningfulGame\scripts\ghostHunter.cs" />
+    <Compile Include="Assets\MeaningfulGame\scripts\robotPatrolUnit.cs" />
+    <Compile Include="Assets\MeaningfulGame\scripts\robotVision.cs" />
+    <Compile Include="Assets\MeaningfulGame\scripts\villager.cs" />
+    <Compile Include="Assets\MeaningfulGame\scripts\walkScript.cs" />
     <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\EdgeDetectEffect.cs" />
     <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\GlowEffect.cs" />
     <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
@@ -113,14 +122,6 @@
     <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
     <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
     <Compile Include="Assets\SciFi level\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
-    <Compile Include="Assets\mine\scripts\ThirdPersonCamera.cs" />
-    <Compile Include="Assets\mine\scripts\autoWalkScript.cs" />
-    <Compile Include="Assets\mine\scripts\ghostHaunterPlayer.cs" />
-    <Compile Include="Assets\mine\scripts\ghostHunter.cs" />
-    <Compile Include="Assets\mine\scripts\robotPatrolUnit.cs" />
-    <Compile Include="Assets\mine\scripts\robotVision.cs" />
-    <Compile Include="Assets\mine\scripts\villager.cs" />
-    <Compile Include="Assets\mine\scripts\walkScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\!SCI_FI_Modular_Pack_Free\AdditiveTint.shader" />
