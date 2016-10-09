@@ -6,10 +6,39 @@ ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Sticky01
+    100004: Sticky02
+    100006: Sticky03
+    100008: Sticky04
+    100010: Sticky05
+    100012: Sticky06
     400000: //RootNode
+    400002: Sticky01
+    400004: Sticky02
+    400006: Sticky03
+    400008: Sticky04
+    400010: Sticky05
+    400012: Sticky06
     2300000: //RootNode
+    2300002: Sticky01
+    2300004: Sticky02
+    2300006: Sticky03
+    2300008: Sticky04
+    2300010: Sticky05
+    2300012: Sticky06
     3300000: //RootNode
+    3300002: Sticky01
+    3300004: Sticky02
+    3300006: Sticky03
+    3300008: Sticky04
+    3300010: Sticky05
+    3300012: Sticky06
     4300000: Sticky01
+    4300002: Sticky03
+    4300004: Sticky04
+    4300006: Sticky02
+    4300008: Sticky05
+    4300010: Sticky06
   materials:
     importMaterials: 0
     materialName: 0

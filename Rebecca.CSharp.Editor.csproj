@@ -124,6 +124,7 @@
   <ItemGroup>
     <None Include="Assets\!SCI_FI_Modular_Pack_Free\AdditiveTint.shader" />
     <None Include="Assets\Baker House\Readme.txt" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\DogPack\Examples\Description.txt" />
     <None Include="Assets\MeaningfulGame\Raymond\Extra Res\Raw Mocap Data\Animations\_CompleteAnimationList.txt" />
     <None Include="Assets\MeaningfulGame\Raymond\Extra Res\RetroLamps\Shaders\Lamps_rimShaderSpecEmi.shader" />
     <None Include="Assets\MeaningfulGame\Raymond\Extra Res\RetroLamps\Shaders\Lamps_rimShader_dust.shader" />
