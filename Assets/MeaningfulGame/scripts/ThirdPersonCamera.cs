@@ -28,21 +28,16 @@ public class ThirdPersonCamera : MonoBehaviour {
 	}
 
 	void FixedUpdate ()
-	{		
-		float targetRot = Vector3.Angle (oldTargetForth, target.forward);
-
-		targetVirtual = target.position - camDistance * target.forward + camHeight*target.up;
-		myTransform.position = Vector3.Lerp (myTransform.position, targetVirtual, Time.deltaTime * smoothTrans);
-
-
-//		if (targetRot > rotSens) {
-//		Quaternion lookRotation = Quaternion.LookRotation (target.forward,target.up);
-//		myTransform.rotation = lookRotation;//Quaternion.Lerp (myTransform.rotation, lookRotation, Time.deltaTime * smoothRot);
-//		} 
-//		else{
+	{
+		if (Input.GetKey ("left shift")) {
+			targetVirtual = target.position + camDistance * target.forward + camHeight*target.up;
+			myTransform.forward = Vector3.Lerp (myTransform.forward, -1 * target.forward, Time.deltaTime * smoothRot);	
+			Debug.Log ("pressing left shift");
+		} else {
+			targetVirtual = target.position - camDistance * target.forward + camHeight*target.up;
 			myTransform.forward = Vector3.Lerp (myTransform.forward, target.forward, Time.deltaTime * smoothRot);	
-		//}
-
+		}
+		myTransform.position = Vector3.Lerp (myTransform.position, targetVirtual, Time.deltaTime * smoothTrans);
 
 		oldTargetForth = target.forward;
 	}

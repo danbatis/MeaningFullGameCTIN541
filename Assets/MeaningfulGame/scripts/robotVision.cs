@@ -17,6 +17,9 @@ public class robotVision : MonoBehaviour {
 	void Start () {
 		myRobotPatrolScript = GetComponent<robotPatrolUnit> ();
 		navAgent = GetComponent<NavMeshAgent> ();
+
+		hipTarget = GameObject.FindGameObjectWithTag("playerBody").transform;
+		headTarget = GameObject.FindGameObjectWithTag ("playerHead").transform;
 	}
 	
 	// Update is called once per frame
@@ -29,18 +32,20 @@ public class robotVision : MonoBehaviour {
 		Debug.DrawLine(eyePosition,eyePosition+Vector3.Normalize(hipTarget.position-eyePosition)*searchDistance, new Color(0f,1f,0f));
 		if (Physics.Raycast (eyePosition, hipTarget.position-eyePosition, out hit, searchDistance)) {
 			//Debug.Log ("found something:" + hit.transform.name);
-			if (hit.transform.name == "player") {
+			if (hit.transform.tag == "Player") {
 				//Debug.Log ("Found Player, updating my navmesh target and mode of operation!");
 				navAgent.SetDestination (hit.transform.position);
 				myRobotPatrolScript.hunterMode = robotPatrolUnit.hunterModes.hunt;
+				myRobotPatrolScript.target.GetComponent<walkScript> ().SoundAlarm (gameObject.name);
 				myRobotPatrolScript.busy = false;
 			} else {
 				Debug.DrawLine(eyePosition,eyePosition+Vector3.Normalize(headTarget.position-eyePosition)*searchDistance, new Color(1f,0f,0f));
 				if (Physics.Raycast (eyePosition, headTarget.position-eyePosition, out hit, searchDistance)) {
-					if (hit.transform.name == "player") {
+					if (hit.transform.tag == "Player") {
 						//Debug.Log ("Found Player, updating my navmesh target and mode of operation!");
 						navAgent.SetDestination (hit.transform.position);
 						myRobotPatrolScript.hunterMode = robotPatrolUnit.hunterModes.hunt;
+						myRobotPatrolScript.target.GetComponent<walkScript> ().SoundAlarm (gameObject.name);
 						myRobotPatrolScript.busy = false;
 					}
 				} 

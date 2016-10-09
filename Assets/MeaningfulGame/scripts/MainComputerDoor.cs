@@ -30,7 +30,7 @@ public class MainComputerDoor : MonoBehaviour {
 
 	void OnCollisionEnter(Collision col){
 		
-		if (col.gameObject.name == "player") {
+		if (col.gameObject.tag == "Player") {
 			Debug.Log (gameObject.name+" colliding with: "+col.gameObject.name);	
 		}
 	}

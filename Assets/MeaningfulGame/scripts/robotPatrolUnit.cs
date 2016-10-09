@@ -13,7 +13,7 @@ public class robotPatrolUnit : MonoBehaviour {
 
 	public float patrolTime=5.0f;
 	public float blindSearchTime=5.0f;
-	public bool blindSearch = false;
+	private bool blindSearch = false;
 	private float myTime;
 
 	public enum hunterModes{
@@ -27,6 +27,9 @@ public class robotPatrolUnit : MonoBehaviour {
 
 	private robotVision myRobotVisionScript;
 	private BoxCollider myBoxCollider;
+
+	public bool backNforthPatrol=false;
+	private int patrolDir = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -75,6 +78,7 @@ public class robotPatrolUnit : MonoBehaviour {
 										//End Game
 										Debug.Log ("Found and reached player, end game!");
 										Time.timeScale = 0;
+										target.GetComponent<walkScript> ().Die ("You were taken, try again");
 										//navAgent.SetDestination (spawnPoint);
 									}
 									break;
@@ -95,11 +99,12 @@ public class robotPatrolUnit : MonoBehaviour {
 				blindSearch = false;	
 				//Lost subject
 				Debug.Log ("Lost subject, returning to patrol pattern");
+				target.GetComponent<walkScript> ().StopSoundAlarm (gameObject.name);
+				myRobotVisionScript.enabled = false;
+				myBoxCollider.enabled = true;
 				hunterMode = hunterModes.patrol;
 				navAgent.SetDestination (patrolPoints[currentPatrolPoint].position);
 				StartCoroutine (PatrolNSeek ());
-				myRobotVisionScript.enabled = false;
-				myBoxCollider.enabled = true;
 			}
 		}
 		//navAgent.pathStatus
@@ -110,23 +115,36 @@ public class robotPatrolUnit : MonoBehaviour {
 		busy = true;
 		yield return new WaitForSeconds(patrolTime);
 		busy = false;
-		currentPatrolPoint += 1;
-		if (currentPatrolPoint >= patrolPoints.Length)
-			currentPatrolPoint = 0;
+		if (backNforthPatrol) {
+			currentPatrolPoint += patrolDir;
+			if (currentPatrolPoint == -1){
+				currentPatrolPoint = 1;
+				patrolDir=1;
+			}
+			if (currentPatrolPoint == patrolPoints.Length){
+				currentPatrolPoint = patrolPoints.Length-2;
+				patrolDir=-1;
+			}
+		} 
+		else{
+			currentPatrolPoint += 1;
+			if (currentPatrolPoint >= patrolPoints.Length)
+				currentPatrolPoint = 0;
+		}
 		navAgent.SetDestination (patrolPoints[currentPatrolPoint].position);
 	}
 
 	void OnTriggerEnter(Collider other){
-		Debug.Log (gameObject.name+"trigger with: "+other.gameObject.name);
-		if (other.gameObject.name == "player") {
+		//Debug.Log (gameObject.name+"trigger with: "+other.gameObject.name);
+		if (other.gameObject.tag == "Player") {
 			myRobotVisionScript.enabled = true;
 			myBoxCollider.enabled = false;
 		}
 
 	}
 	void OnTriggerExit(Collider other){
-		Debug.Log (gameObject.name+"trigger out: "+other.gameObject.name);
-		if (other.gameObject.name == "player") {
+		//Debug.Log (gameObject.name+"trigger out: "+other.gameObject.name);
+		if (other.gameObject.tag == "Player") {
 			myRobotVisionScript.enabled = false;
 			myBoxCollider.enabled = true;
 		}

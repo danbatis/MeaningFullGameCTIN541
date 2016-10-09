@@ -45,11 +45,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\MeaningfulGame\scripts\BeyondKillerArea.cs" />
      <Compile Include="Assets\MeaningfulGame\scripts\MainComputerDoor.cs" />
      <Compile Include="Assets\MeaningfulGame\scripts\ThirdPersonCamera.cs" />
      <Compile Include="Assets\MeaningfulGame\scripts\autoWalkScript.cs" />
+     <Compile Include="Assets\MeaningfulGame\scripts\dogWalker.cs" />
      <Compile Include="Assets\MeaningfulGame\scripts\ghostHaunterPlayer.cs" />
      <Compile Include="Assets\MeaningfulGame\scripts\ghostHunter.cs" />
+     <Compile Include="Assets\MeaningfulGame\scripts\hideBotDetector.cs" />
+     <Compile Include="Assets\MeaningfulGame\scripts\hideBotDoorOperator.cs" />
+     <Compile Include="Assets\MeaningfulGame\scripts\pendriveAnimator.cs" />
      <Compile Include="Assets\MeaningfulGame\scripts\robotPatrolUnit.cs" />
      <Compile Include="Assets\MeaningfulGame\scripts\robotVision.cs" />
      <Compile Include="Assets\MeaningfulGame\scripts\villager.cs" />
