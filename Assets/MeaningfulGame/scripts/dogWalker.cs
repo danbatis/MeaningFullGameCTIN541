@@ -12,11 +12,15 @@ public class dogWalker : MonoBehaviour {
 	public Transform[] guidePoints;
 	public int currentGuidePoint;
 
+	private Animator anim;   
+
 	// Use this for initialization
 	void Start () {
 		myTransform = transform;
 		owner = GameObject.FindGameObjectWithTag ("Player").transform;
 		ownerScript = owner.GetComponent<walkScript> ();
+
+		anim = GetComponent<Animator>();
 
 		navAgent = GetComponent<NavMeshAgent> ();
 		navAgent.SetDestination (owner.position);
@@ -24,6 +28,7 @@ public class dogWalker : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		anim.SetFloat("goForth", navAgent.velocity.magnitude/navAgent.speed);
 		if (Vector3.Distance (myTransform.position, owner.position) >= happyOwnerDistance) {
 			navAgent.SetDestination (owner.position);
 		} 

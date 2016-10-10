@@ -21,6 +21,7 @@ public class ThirdPersonCamera : MonoBehaviour {
 		myTransform = transform;
 		oldTargetForth = Vector3.zero;
 
+		target = GameObject.FindGameObjectWithTag ("Player").transform;
 		if (target == null) {
 			Debug.Log ("Error! The targetPos was not assigned, ThirdPersonCamera script is deactivated!");
 			myTransform.GetComponent<ThirdPersonCamera> ().enabled = false;

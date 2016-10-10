@@ -3,7 +3,7 @@ using System.Collections;
 
 public class robotPatrolUnit : MonoBehaviour {
 	NavMeshAgent navAgent;
-	//private Animator anim;   
+	private Animator anim;   
 
 	public Transform target;
 	public Vector3 spawnPoint;
@@ -33,7 +33,7 @@ public class robotPatrolUnit : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//anim = GetComponent<Animator>();
+		anim = GetComponent<Animator>();
 		navAgent = GetComponent<NavMeshAgent> ();
 		myRobotVisionScript = GetComponent<robotVision> ();
 		myBoxCollider = GetComponent<BoxCollider> ();
@@ -52,7 +52,7 @@ public class robotPatrolUnit : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		//anim.SetFloat("samuraiForthSpeed", navAgent.velocity.magnitude/navAgent.speed);
+		anim.SetFloat("goForth", navAgent.velocity.magnitude/navAgent.speed);
 
 		if (!busy) {
 			if (!navAgent.pathPending) {
@@ -77,7 +77,8 @@ public class robotPatrolUnit : MonoBehaviour {
 									else{									
 										//End Game
 										Debug.Log ("Found and reached player, end game!");
-										Time.timeScale = 0;
+										anim.SetBool("crouch", true);
+										//Time.timeScale = 0;
 										target.GetComponent<walkScript> ().Die ("You were taken, try again");
 										//navAgent.SetDestination (spawnPoint);
 									}
