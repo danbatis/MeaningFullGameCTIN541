@@ -31,6 +31,12 @@ public class robotPatrolUnit : MonoBehaviour {
 	public bool backNforthPatrol=false;
 	private int patrolDir = 1;
 
+	private GameObject greenHaloGO;
+	private Renderer haloRenderer;
+
+	public Material redHaloMat;
+	public Material greenHaloMat;
+
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator>();
@@ -48,6 +54,9 @@ public class robotPatrolUnit : MonoBehaviour {
 		navAgent.SetDestination (patrolPoints[currentPatrolPoint].position);
 		//navAgent.SetDestination (target.position);
 
+		greenHaloGO = GameObject.Find (gameObject.name+"/Armature/Hips/Spine/Chest/Neck/Head/greenHalo");
+		haloRenderer = greenHaloGO.GetComponent<Renderer> ();
+		haloRenderer.material = greenHaloMat;
 	}
 
 	// Update is called once per frame
@@ -100,17 +109,21 @@ public class robotPatrolUnit : MonoBehaviour {
 				blindSearch = false;	
 				//Lost subject
 				Debug.Log ("Lost subject, returning to patrol pattern");
-				target.GetComponent<walkScript> ().StopSoundAlarm (gameObject.name);
-				myRobotVisionScript.enabled = false;
-				myBoxCollider.enabled = true;
-				hunterMode = hunterModes.patrol;
-				navAgent.SetDestination (patrolPoints[currentPatrolPoint].position);
-				StartCoroutine (PatrolNSeek ());
+				returnToPatrolMode ();
 			}
 		}
 		//navAgent.pathStatus
 	}
 
+	public void returnToPatrolMode(){
+		target.GetComponent<walkScript> ().StopSoundAlarm (gameObject.name);
+		myRobotVisionScript.enabled = false;
+		haloRenderer.material = greenHaloMat;
+		myBoxCollider.enabled = true;
+		hunterMode = hunterModes.patrol;
+		navAgent.SetDestination (patrolPoints[currentPatrolPoint].position);
+		StartCoroutine (PatrolNSeek ());
+	}
 
 	IEnumerator PatrolNSeek() {
 		busy = true;
@@ -139,6 +152,7 @@ public class robotPatrolUnit : MonoBehaviour {
 		//Debug.Log (gameObject.name+"trigger with: "+other.gameObject.name);
 		if (other.gameObject.tag == "Player") {
 			myRobotVisionScript.enabled = true;
+			haloRenderer.material = redHaloMat;
 			myBoxCollider.enabled = false;
 		}
 
@@ -147,6 +161,7 @@ public class robotPatrolUnit : MonoBehaviour {
 		//Debug.Log (gameObject.name+"trigger out: "+other.gameObject.name);
 		if (other.gameObject.tag == "Player") {
 			myRobotVisionScript.enabled = false;
+			haloRenderer.material = greenHaloMat;
 			myBoxCollider.enabled = true;
 		}
 

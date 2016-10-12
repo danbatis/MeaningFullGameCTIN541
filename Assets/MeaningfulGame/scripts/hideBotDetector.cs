@@ -18,7 +18,7 @@ public class hideBotDetector : MonoBehaviour {
 		//Debug.Log (gameObject.name+" trigger with: "+other.gameObject.name);
 		if (other.gameObject.tag == "hideableBot") {			
 			if(!myDoorOperator.hideDoorOpened){
-				Debug.Log ("A hideable bot entered.");
+				//Debug.Log ("A hideable bot entered.");
 				myDoorOperator.openHideDoor = true;
 				myDoorOperator.closeHideDoor = false;
 			}
@@ -29,7 +29,7 @@ public class hideBotDetector : MonoBehaviour {
 		//Debug.Log (gameObject.name+" trigger out: "+other.gameObject.name);
 		if (other.gameObject.tag == "hideableBot") {
 			if (myDoorOperator.hideDoorOpened) {
-				Debug.Log ("A hideable bot exited.");
+				//Debug.Log ("A hideable bot exited.");
 				myDoorOperator.closeHideDoor = true;
 				myDoorOperator.openHideDoor = false;
 			}

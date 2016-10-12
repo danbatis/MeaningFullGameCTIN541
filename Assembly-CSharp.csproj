@@ -54,7 +54,9 @@
      <Compile Include="Assets\MeaningfulGame\scripts\BeyondKillerArea.cs" />
      <Compile Include="Assets\MeaningfulGame\scripts\MainComputerDoor.cs" />
      <Compile Include="Assets\MeaningfulGame\scripts\ThirdPersonCamera.cs" />
+     <Compile Include="Assets\MeaningfulGame\scripts\autoRXwalker.cs" />
      <Compile Include="Assets\MeaningfulGame\scripts\autoWalkScript.cs" />
+     <Compile Include="Assets\MeaningfulGame\scripts\cameraCutScene.cs" />
      <Compile Include="Assets\MeaningfulGame\scripts\dogWalker.cs" />
      <Compile Include="Assets\MeaningfulGame\scripts\ghostHaunterPlayer.cs" />
      <Compile Include="Assets\MeaningfulGame\scripts\ghostHunter.cs" />
