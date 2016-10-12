@@ -20,6 +20,7 @@ public class autoRXwalker : MonoBehaviour {
 			if (navAgent.remainingDistance <= navAgent.stoppingDistance) {
 				if (!navAgent.hasPath || navAgent.velocity.sqrMagnitude == 0f) {
 					//arrived in front of screen, interact with it
+					anim.SetFloat("samuraiForthSpeed", 0f);
 					anim.SetBool("interactWithScreen", true);
 					Debug.Log ("The RX bot should start interacting with the screen now!");
 				}

@@ -2,14 +2,15 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\MeaningfulGame\scripts\walkScript.cs">
     <Files>
-      <File FileName="Assets\MeaningfulGame\scripts\MainComputerDoor.cs" Line="1" Column="1" />
-      <File FileName="Assets\MeaningfulGame\scripts\robotPatrolUnit.cs" Line="55" Column="36" />
-      <File FileName="Assets\MeaningfulGame\scripts\robotVision.cs" Line="56" Column="72" />
-      <File FileName="Assets\MeaningfulGame\scripts\walkScript.cs" Line="370" Column="72" />
-      <File FileName="Assets\MeaningfulGame\scripts\cameraCutScene.cs" Line="53" Column="3" />
-      <File FileName="Assets\MeaningfulGame\scripts\hideBotDetector.cs" Line="1" Column="1" />
-      <File FileName="Assets\MeaningfulGame\scripts\ThirdPersonCamera.cs" Line="16" Column="30" />
-      <File FileName="Assets\MeaningfulGame\scripts\autoRXwalker.cs" Line="8" Column="39" />
+      <File FileName="Assets\MeaningfulGame\scripts\MainComputerDoor.cs" Line="34" Column="20" />
+      <File FileName="Assets\MeaningfulGame\scripts\robotPatrolUnit.cs" Line="1" Column="1" />
+      <File FileName="Assets\MeaningfulGame\scripts\robotVision.cs" Line="1" Column="1" />
+      <File FileName="Assets\MeaningfulGame\scripts\walkScript.cs" Line="222" Column="21" />
+      <File FileName="Assets\MeaningfulGame\scripts\cameraCutScene.cs" Line="34" Column="30" />
+      <File FileName="Assets\MeaningfulGame\scripts\ThirdPersonCamera.cs" Line="1" Column="1" />
+      <File FileName="Assets\MeaningfulGame\scripts\autoRXwalker.cs" Line="1" Column="1" />
+      <File FileName="Assets\MeaningfulGame\scripts\dogWalker.cs" Line="1" Column="1" />
+      <File FileName="Assets\MeaningfulGame\scripts\hideBotDoorOperator.cs" Line="27" Column="42" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

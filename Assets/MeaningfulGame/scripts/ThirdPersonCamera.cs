@@ -19,10 +19,12 @@ public class ThirdPersonCamera : MonoBehaviour {
 
 	private Vector3 oldTargetForth;
 	private float deltaCam = 0.0f;
+	private float effectiveCamDistance;
 
 	void Start(){
 		myTransform = transform;
 		oldTargetForth = Vector3.zero;
+		effectiveCamDistance = camDistance;
 
 		target = GameObject.FindGameObjectWithTag ("Player").transform;
 		playerBody = GameObject.FindGameObjectWithTag("playerBody").transform;
@@ -41,15 +43,21 @@ public class ThirdPersonCamera : MonoBehaviour {
 			Debug.Log ("pressing left shift");
 		} else {
 		*/
-		float effectiveCamDistance = camDistance;
+
 		RaycastHit hit;
 		Debug.DrawLine(myTransform.position,playerBody.position, new Color(0f,1f,0f));
 		if (Physics.Raycast (myTransform.position, playerBody.position - myTransform.position, out hit)) {
 			//Debug.Log ("camera ray hiting: "+hit.transform.gameObject.name);
 			if (hit.transform.gameObject.tag == "Player") {
-				effectiveCamDistance += approachCameraSpeed*Time.deltaTime;
-				if (effectiveCamDistance >= camDistance)
-					effectiveCamDistance = camDistance;
+				//check if futurePosition will be ocluded before going for it:
+				float futureEffectiveCamDistance = effectiveCamDistance + approachCameraSpeed * Time.deltaTime;
+				if (futureEffectiveCamDistance >= camDistance)
+					futureEffectiveCamDistance = camDistance;
+				Vector3 futurePos = target.position - futureEffectiveCamDistance * target.forward + camHeight * target.up;
+				if (Physics.Raycast (futurePos, playerBody.position - futurePos, out hit)) {
+					if(hit.transform.gameObject.tag=="Player")
+						effectiveCamDistance = futureEffectiveCamDistance;
+				}
 			} 
 			else {
 				effectiveCamDistance -= approachCameraSpeed*Time.deltaTime;

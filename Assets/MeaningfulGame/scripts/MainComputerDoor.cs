@@ -14,7 +14,7 @@ public class MainComputerDoor : MonoBehaviour {
 	private Transform playerTarget;
 	private GameObject mainCamera;
 	public float someDist = 2.0f;
-
+	private AudioSource myAudio;
 
 	void Start(){
 		closedXcoord = transform.position.x;
@@ -25,12 +25,13 @@ public class MainComputerDoor : MonoBehaviour {
 		dogPassage.activated = false;
 
 		playerTarget = GameObject.FindGameObjectWithTag("Player").transform;
-
+		myAudio = GetComponent<AudioSource> ();
 	}
 
 	// Update is called once per frame
 	void Update () {
 		if (openMainDoor && !MainDoorOpened) {
+			myAudio.Play ();
 			currXcoord -= openSpeed * Time.deltaTime;
 			transform.position = new Vector3(currXcoord,transform.position.y,transform.position.z);
 			if (currXcoord <= closedXcoord - slideAmplitude) {

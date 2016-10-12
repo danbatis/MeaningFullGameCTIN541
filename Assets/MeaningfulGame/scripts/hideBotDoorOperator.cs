@@ -13,6 +13,8 @@ public class hideBotDoorOperator : MonoBehaviour {
 	public bool openHideDoor;
 	public bool closeHideDoor;
 
+	private AudioSource myAudio;
+
 	public enum doorAxes{
 		x,
 		y,
@@ -22,6 +24,7 @@ public class hideBotDoorOperator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		myAudio = GetComponent<AudioSource> ();
 		switch(doorAxe){
 			case doorAxes.x:
 				closedCoord = transform.position.x;
@@ -41,6 +44,7 @@ public class hideBotDoorOperator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (openHideDoor && !hideDoorOpened) {
+			myAudio.Play ();
 			switch(doorAxe){
 				case doorAxes.x:
 				currCoord -= openSpeed * Time.deltaTime;

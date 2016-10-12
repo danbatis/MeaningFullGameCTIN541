@@ -29,6 +29,10 @@ public class cameraCutScene : MonoBehaviour {
 
 	GameObject RXbotGO;
 	Transform virtualTarget;
+	public GameObject playerUI;
+
+	private AudioSource myAudio;
+	public AudioClip finalSceneEntrySound;
 
 	// Use this for initialization
 	void Start () {		
@@ -42,6 +46,9 @@ public class cameraCutScene : MonoBehaviour {
 		ownAudioListener = GetComponent<AudioListener> ();
 		ownCamera.enabled = false;
 		ownAudioListener.enabled = false;
+
+		playerUI = GameObject.Find ("Canvas");
+		myAudio = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -78,6 +85,7 @@ public class cameraCutScene : MonoBehaviour {
 			virtualTarget = RXbotGO.transform;
 			StartCoroutine (switch2MainPcScreen());
 			activated = true;
+			myAudio.PlayOneShot (finalSceneEntrySound);
 			mainCamera.SetActive (false);
 			ownCamera.enabled = true;
 			ownAudioListener.enabled = true;
@@ -87,6 +95,7 @@ public class cameraCutScene : MonoBehaviour {
 	}
 
 	IEnumerator switch2MainPcScreen(){
+		playerUI.SetActive(false);
 		yield return new WaitForSeconds(switch2MainPcScreenTime);
 		activated = false;
 		transitioning = true;

@@ -51,7 +51,15 @@ public class walkScript : MonoBehaviour {
 	private int redpendriveAlarmCounter;
 	public Text redpendriveAlarmCounterUI;
 	private GameObject[] enemies;
+	//audio
 	public AudioClip RPalarmSound;
+	public AudioClip restartSound;
+
+	public AudioClip crouchSound;
+	public AudioClip jumpSound;
+	public AudioClip walkSound;
+	public AudioClip dropItemSound;
+	public AudioClip obtainItemSound;
 
 	private bool dead;
 	private bool pausedGame;
@@ -60,10 +68,10 @@ public class walkScript : MonoBehaviour {
 	public GameObject torchLight;
 
 	public AudioClip alarmSound;
-	public AudioClip defaultSound;
 
 	public List<string> enemiesInPursuit;
-
+	private dogWalker myDog;
+	public GameObject highlightRed;
 
 	// Use this for initialization
 	void Start () {
@@ -71,6 +79,7 @@ public class walkScript : MonoBehaviour {
 		anim = GetComponent<Animator>();
 		myControl = GetComponent<CharacterController>();
 		myAudio = GetComponent<AudioSource> ();
+		myDog = GameObject.FindGameObjectWithTag ("dogGuide").GetComponent<dogWalker>();
 
 
 		if (!torchLight)
@@ -83,6 +92,7 @@ public class walkScript : MonoBehaviour {
 		myTransform = transform;
 		redpendriveAlarmCounterUI.enabled = false;
 		enemies = GameObject.FindGameObjectsWithTag ("hideableBot");
+		myAudio.PlayOneShot (restartSound);
 	}
 	
 	// Update is called once per frame
@@ -111,6 +121,8 @@ public class walkScript : MonoBehaviour {
 						redPenDrive = false;
 						StartCoroutine(activateRPafter(TimeToEraseMsg));
 						redPenDriveGO.transform.position = myTransform.position+0.7f*Vector3.up;
+						myDog.currentGuidePoint = 4;
+						myAudio.PlayOneShot (dropItemSound);
 					}
 				} 
 				else {
@@ -183,9 +195,11 @@ public class walkScript : MonoBehaviour {
 					anim.SetFloat("samuraiForthSpeed", 0f);
 					anim.SetBool ("JumpUp",true);
 					anim.SetBool ("JumpDown",false);
+					myAudio.PlayOneShot (jumpSound);
 				}
 				if (Input.GetKey (KeyCode.LeftControl)) {
 					anim.SetBool ("crouch", true);
+					myAudio.PlayOneShot (crouchSound);
 					vertIN = 0f;
 				} else {
 					anim.SetBool ("crouch", false);
@@ -199,10 +213,19 @@ public class walkScript : MonoBehaviour {
 
 
 			float forthSpeed;
-			if (vertIN > 0)
+			if (vertIN > 0) {
 				forthSpeed = forwardSpeed;
-			else
-				forthSpeed = forwardSpeed/2;			
+				myAudio.Play();
+			} 
+			else {
+				if (vertIN == 0) {
+					forthSpeed = 0;
+					myAudio.Stop();
+				} else {
+					forthSpeed = forwardSpeed / 2;
+					myAudio.Play();
+				}
+			}
 			myControl.Move(myTransform.forward * vertIN * forthSpeed*Time.deltaTime + myTransform.up*verticalSpeed*Time.deltaTime );
 
 			anim.speed = animSpeed;
@@ -217,6 +240,7 @@ public class walkScript : MonoBehaviour {
 				//CheckPenDrives
 				string msg;
 				if (redPenDrive && yellowPenDrive && greenPenDrive && purplePenDrive && bluePenDrive) {
+					/*
 					if (enemiesInPursuit.Count > 0) {
 						msg = "Come back without robots in pursuit";
 					} 
@@ -224,6 +248,9 @@ public class walkScript : MonoBehaviour {
 						msg = "Ok, You have all of the PenDrives!";
 						hit.gameObject.GetComponent<MainComputerDoor> ().openMainDoor = true;
 					}
+					*/
+					msg = "Ok, You have all of the PenDrives!";
+					hit.gameObject.GetComponent<MainComputerDoor> ().openMainDoor = true;
 				} else {
 					msg = "You do not have all of the PenDrives! Come Back when you do.";
 				}
@@ -277,6 +304,7 @@ public class walkScript : MonoBehaviour {
 				return false;
 			} else {
 				if (!whichPenDrive) {
+					myAudio.PlayOneShot (obtainItemSound);
 					string msg = "Congratulations, you acquired the " + pendriveName + " pen drive.";
 					Debug.Log (msg);
 					playermsgText.text = msg;
@@ -340,7 +368,8 @@ public class walkScript : MonoBehaviour {
 			enemiesInPursuit.Add (enemyName);
 
 			myAudio.clip = alarmSound;
-			myAudio.Play ();
+			myAudio.Play();
+			highlightRed.SetActive (true);
 
 			//Debug.Log("current audio clip is "+myAudio.clip.ToString());
 		}
@@ -348,9 +377,12 @@ public class walkScript : MonoBehaviour {
 	public void StopSoundAlarm(string enemyName){
 		enemiesInPursuit.Remove (enemyName);
 		if (enemiesInPursuit.Count == 0) {			
-			myAudio.clip = defaultSound;
-			myAudio.Play ();
+			myAudio.Stop ();
+			myAudio.clip = walkSound;
+
+			highlightRed.SetActive (false);
 			Debug.Log ("current audio clip is " + myAudio.clip.ToString ());
+
 		}
 	}
 
