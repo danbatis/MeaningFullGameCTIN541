@@ -27,7 +27,7 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_4_0;UNITY_5_4;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_EDITOR_RETINA;ENABLE_RETINA_GUISTYLES;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_4_0;UNITY_5_4;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_EDITOR_RETINA;ENABLE_RETINA_GUISTYLES;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;ENABLE_VSTU;CROSS_PLATFORM_INPUT</DefineConstants>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -37,7 +37,7 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_4_0;UNITY_5_4;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_EDITOR_RETINA;ENABLE_RETINA_GUISTYLES;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_4_0;UNITY_5_4;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_EDITOR_RETINA;ENABLE_RETINA_GUISTYLES;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;ENABLE_VSTU;CROSS_PLATFORM_INPUT</DefineConstants>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
@@ -72,21 +72,160 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Animation\BlendAnimationEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Animation\CrossFadeAnimationEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Animation\PlayAnimationEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Animation\RewindAnimationEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Animation\SampleAnimationEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Animation\StopAnimationEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Animator\CrossFadeAnimatorEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Animator\LookAtTarget.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Animator\MatchTargetEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Animator\PlayAnimatorEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Animator\SetBoolAnimatorEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Animator\SetFloatAnimatorEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Animator\SetIKPositionAnimatorEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Animator\SetIKPositionWeightAnimatorEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Animator\SetIKRotationAnimatorEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Animator\SetIKRotationWeightAnimatorEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Animator\SetIntegerAnimatorEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Animator\SetLayerWeightAnimatorEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Animator\SetLookAtPositionAnimatorEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Animator\SetLookAtWeightAnimatorEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Animator\SetTargetAnimatorEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Animator\SetTriggerAnimatorEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\AudioSource\PauseAudioEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\AudioSource\PlayAudioEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\AudioSource\PlayOneShotAudioEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\AudioSource\StopAudioEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\GameObject\DisableBehaviour.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\GameObject\DisableGameObject.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\GameObject\EnableBehaviour.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\GameObject\EnableGameObject.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\GameObject\EnableGameObjectAction.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\GameObject\SendMessageGameObject.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Light\SetColorLight.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Light\SetIntensityLight.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Navigation\SetDestinationEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Rigidbody\ApplyForceEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Rigidbody\ApplyTorqueEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Rigidbody\RigidbodySleepEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Rigidbody\RigidbodyWakeUpEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Rigidbody\SetMassEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Rigidbody\ToggleGravityEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Transform\AttachChildrenEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Transform\DetachChildrenEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Transform\SetParent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Transform\SetPositionEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Transform\SetTransformEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Actor Items\Transform\TransformLookAtAction.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Core\CinemaAudio.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Core\CinemaShot.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Global Items\AudioSource\PlayClipAtPointAudioEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Global Items\Cutscene\PauseCutscene.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Global Items\Cutscene\PlayCutscene.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Global Items\Cutscene\StopCutscene.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Global Items\Debug\DebugLogErrorEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Global Items\Debug\DebugLogMessageEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Global Items\Debug\DebugLogWarningEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Global Items\GUITexture\FadeTexture.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Global Items\GameObject\DisableGameObjectGlobal.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Global Items\GameObject\EnableGameObjectGlobal.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Global Items\Time\SetTimeScaleEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Global Items\Time\TimeScaleCurveAction.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Global Items\Transitions\ColorTransition.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Global Items\Transitions\FadeFromBlack.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Global Items\Transitions\FadeFromWhite.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Global Items\Transitions\FadeToBlack.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Global Items\Transitions\FadeToWhite.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Global Items\Utility\LoadLevelEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Global Items\Utility\MassDisabler.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\Cutscene Items\Global Items\Utility\StoryboardEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\Cutscene.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\Enums\CutsceneItemGenre.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\Enums\PlaybackMode.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\Enums\PropertyTypeInfo.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\Enums\RevertMode.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\Enums\TimelineTrackGenre.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\Helpers\AnimationCurveHelper.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\Helpers\CutsceneQueue.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\Helpers\CutsceneTrigger.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\Helpers\DirectorRuntimeHelper.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\Helpers\IBakeable.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\Helpers\IOptimizable.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\Helpers\IRevertable.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\Helpers\RevertInfo.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\Helpers\ScreenshotCapture.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineItems\Base\CinemaClipCurve.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineItems\Base\CinemaTween.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineItems\Base\CutsceneItemAttribute.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineItems\Base\MemberClipCurveData.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineItems\Base\TimelineAction.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineItems\Base\TimelineActionFixed.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineItems\Base\TimelineItem.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineItems\CinemaActorAction.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineItems\CinemaActorClipCurve.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineItems\CinemaActorEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineItems\CinemaGlobalAction.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineItems\CinemaGlobalEvent.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineItems\CinemaMultiActorCurveClip.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineTracks\ActorItemTrack.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineTracks\AudioTrack.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineTracks\Base\IActorTrack.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineTracks\Base\IMultiActorTrack.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineTracks\Base\TimelineTrack.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineTracks\Base\TimelineTrackAttribute.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineTracks\CurveTrack.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineTracks\DialogueTrack.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineTracks\GlobalItemTrack.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineTracks\MecanimTrack.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineTracks\MultiCurveTrack.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineTracks\ShotTrack.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TimelineTracks\TransformTrack.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TrackGroups\ActorTrackGroup.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TrackGroups\Base\TrackGroup.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TrackGroups\Base\TrackGroupAttribute.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TrackGroups\CharacterTrackGroup.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TrackGroups\DirectorGroup.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\System\Runtime\TrackGroups\MultiActorTrackGroup.cs" />
     <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\DogPack\Examples\Scripts\Animate.cs" />
     <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\DogPack\Examples\Scripts\ButtonResponder.cs" />
     <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\DogPack\Examples\Scripts\ChangeBlendShape.cs" />
     <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\DogPack\Examples\Scripts\ChangeButtonText.cs" />
     <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\DogPack\Examples\Scripts\ChangeShader.cs" />
     <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\DogPack\Examples\Scripts\MouseOrbitImprovedMod.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Kino\Glitch\AnalogGlitch.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\Kino\Glitch\DigitalGlitch.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Demo\Code\MK_DemoControl.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Demo\Code\MK_RotateObject.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Internal\MKGlow.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Scritps\AsciiArtFx.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Scritps\GlitchEffect.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Scritps\RL_AnimateUIText.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Scritps\RL_BedroomCamera.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Scritps\RL_GameManager.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Scritps\RL_ITAItemBase.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Scritps\RL_ITAItemPassword.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Scritps\RL_MainCharacterController.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Scritps\RL_UIManager.cs" />
+    <Compile Include="Assets\MeaningfulGame\Raymond\Scritps\ThirdPersonController.cs" />
+    <Compile Include="Assets\MeaningfulGame\scripts\BeyondKillerArea.cs" />
     <Compile Include="Assets\MeaningfulGame\scripts\MainComputerDoor.cs" />
     <Compile Include="Assets\MeaningfulGame\scripts\ThirdPersonCamera.cs" />
     <Compile Include="Assets\MeaningfulGame\scripts\autoWalkScript.cs" />
+    <Compile Include="Assets\MeaningfulGame\scripts\dogWalker.cs" />
     <Compile Include="Assets\MeaningfulGame\scripts\ghostHaunterPlayer.cs" />
     <Compile Include="Assets\MeaningfulGame\scripts\ghostHunter.cs" />
+    <Compile Include="Assets\MeaningfulGame\scripts\hideBotDetector.cs" />
+    <Compile Include="Assets\MeaningfulGame\scripts\hideBotDoorOperator.cs" />
+    <Compile Include="Assets\MeaningfulGame\scripts\pendriveAnimator.cs" />
     <Compile Include="Assets\MeaningfulGame\scripts\robotPatrolUnit.cs" />
     <Compile Include="Assets\MeaningfulGame\scripts\robotVision.cs" />
     <Compile Include="Assets\MeaningfulGame\scripts\villager.cs" />
     <Compile Include="Assets\MeaningfulGame\scripts\walkScript.cs" />
+    <Compile Include="Assets\ProgressBar\Script\ProgressBarBehaviour.cs" />
+    <Compile Include="Assets\ProgressBar\Script\ProgressRadialBehaviour.cs" />
+    <Compile Include="Assets\ProgressBar\Script\Utils.cs" />
     <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\EdgeDetectEffect.cs" />
     <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\GlowEffect.cs" />
     <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
@@ -128,17 +267,91 @@
     <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
     <Compile Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
     <Compile Include="Assets\SciFi level\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
+    <Compile Include="Assets\_CharacterSystem\Character_System\Scripts\DemoGUI.cs" />
+    <Compile Include="Assets\_CharacterSystem\Character_System\Scripts\HeroCamera.cs" />
+    <Compile Include="Assets\_CharacterSystem\Character_System\Scripts\HeroCtrl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\!SCI_FI_Modular_Pack_Free\AdditiveTint.shader" />
     <None Include="Assets\Baker House\Readme.txt" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\ChangeLog.txt" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\Cinema Suite\Cinema Director\ReadMe.txt" />
     <None Include="Assets\MeaningfulGame\Raymond\Extra Res\DogPack\Examples\Description.txt" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\Double Sided Shaders\Double Sided Emissive Diffuse.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\Double Sided Shaders\Double Sided Standard Diffuse Bump.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\Double Sided Shaders\Double Sided Transparent Diffuse Bump Cutout.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\Double Sided Shaders\Double Sided Transparent Diffuse Bump.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\Kino\Glitch\Shader\AnalogGlitch.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\Kino\Glitch\Shader\DigitalGlitch.shader" />
     <None Include="Assets\MeaningfulGame\Raymond\Extra Res\Raw Mocap Data\Animations\_CompleteAnimationList.txt" />
     <None Include="Assets\MeaningfulGame\Raymond\Extra Res\RetroLamps\Shaders\Lamps_rimShaderSpecEmi.shader" />
     <None Include="Assets\MeaningfulGame\Raymond\Extra Res\RetroLamps\Shaders\Lamps_rimShader_dust.shader" />
     <None Include="Assets\MeaningfulGame\Raymond\Extra Res\RetroLamps\Shaders\Lamps_rimShader_simple.shader" />
     <None Include="Assets\MeaningfulGame\Raymond\Extra Res\RetroLamps\Shaders\Lamps_rimShader_specular.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Cutout\MK_Cutout-Diffuse.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Cutout\MK_Cutout-DiffuseBumpSpec.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Cutout\MK_Cutout-DiffuseBumped.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Cutout\MK_Cutout-Glossy.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Cutout\MK_Cutout-SoftEdgeUnlit.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Emission\MK_Emission-Diffuse.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Illumin\MK_Illumin-Diffuse.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Illumin\MK_Illumin-DiffuseBumpSpec.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Illumin\MK_Illumin-DiffuseBumped.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Illumin\MK_Illumin-Glossy.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Illumin\MK_Illumin-Parallax.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Illumin\MK_Illumin-ParallaxSpec.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Lightmapped\MK_Lightmap-Diffuse.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Lightmapped\MK_Lightmap-DiffuseBumped.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Mobile\MK_Mobile-Diffuse.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Mobile\MK_Mobile-DiffuseBumpSpec-1DirectionalLight.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Mobile\MK_Mobile-DiffuseBumpSpec.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Mobile\MK_Mobile-DiffuseBumped.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Normal\MK_Normal-Diffuse.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Normal\MK_Normal-DiffuseBumpRim.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Normal\MK_Normal-DiffuseBumpSpec.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Normal\MK_Normal-DiffuseBumped.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Normal\MK_Normal-DiffuseDetail.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Normal\MK_Normal-DiffuseRim.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Normal\MK_Normal-Glossy.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Normal\MK_Normal-Parallax.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Normal\MK_Normal-ParallaxSpec.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Particles\MK_Particles-Additive.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Particles\MK_Particles-AdditiveBlend.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Particles\MK_Particles-AdditiveMultiply.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Particles\MK_Particles-AdditiveSoft.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Particles\MK_Particles-Blend.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Particles\MK_Particles-MulitplyDouble.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Particles\MK_Particles-Multiply.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Particles\MK_Particles-PremultiplyBlend.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Reflective\MK_Reflective-Diffuse.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Reflective\MK_Reflective-DiffuseBumpSpec.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Reflective\MK_Reflective-DiffuseBumped.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Reflective\MK_Reflective-DiffuseBumpedNoLight.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Reflective\MK_Reflective-Glossy.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Reflective\MK_Reflective-Parallax.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Reflective\MK_Reflective-ParallaxSpec.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Sprites\MK_Sprite-Default.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Sprites\MK_Sprite-Diffuse.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Toon\MK_Toon-Basic.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Toon\MK_Toon-BasicOutline.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Transparent\MK_Transparent-Diffuse.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Transparent\MK_Transparent-DiffuseBumpRim.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Transparent\MK_Transparent-DiffuseBumpSpec.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Transparent\MK_Transparent-DiffuseBumped.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Transparent\MK_Transparent-DiffuseRim.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Transparent\MK_Transparent-Glossy.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Transparent\MK_Transparent-Parallax.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Transparent\MK_Transparent-ParallaxSpec.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Unlit\MK_Unlit-Normal.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Unlit\MK_Unlit-Transparent.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKBase\Unlit\MK_Unlit-TransparentCutout.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKGlowEffect\MKGlowBlur.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKGlowEffect\MKGlowBlurVHP.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKGlowEffect\MKGlowCompose.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Extra Res\_MK\_MKGlow\_Shader\_MKGlowEffect\MKGlowRender.shader" />
     <None Include="Assets\MeaningfulGame\Raymond\Materials\Shaders\StandardVertex.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Scritps\AsciiArtFx.shader" />
+    <None Include="Assets\MeaningfulGame\Raymond\Scritps\GlitchShader.shader" />
     <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
@@ -221,6 +434,10 @@
     <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
     <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
     <None Include="Assets\SciFi HandLight Free\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
+    <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
+    <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
+    <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
+    <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
