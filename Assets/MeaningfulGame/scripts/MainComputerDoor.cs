@@ -11,12 +11,21 @@ public class MainComputerDoor : MonoBehaviour {
 	public float slideAmplitude=2.65f;
 	private OffMeshLink dogPassage;
 
+	private Transform playerTarget;
+	private GameObject mainCamera;
+	public float someDist = 2.0f;
+
+
 	void Start(){
 		closedXcoord = transform.position.x;
 		currXcoord = closedXcoord;
 
 		dogPassage = GetComponent<OffMeshLink> ();
+		mainCamera = GameObject.FindGameObjectWithTag ("MainCamera");
 		dogPassage.activated = false;
+
+		playerTarget = GameObject.FindGameObjectWithTag("Player").transform;
+
 	}
 
 	// Update is called once per frame
@@ -38,5 +47,4 @@ public class MainComputerDoor : MonoBehaviour {
 			Debug.Log (gameObject.name+" colliding with: "+col.gameObject.name);	
 		}
 	}
-
 }

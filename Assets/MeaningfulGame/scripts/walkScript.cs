@@ -26,6 +26,12 @@ public class walkScript : MonoBehaviour {
 
 	public Text playermsgText;
 	public RawImage playerImage;
+	public RawImage pendriveColorBlue;
+	public RawImage pendriveColorPurple;
+	public RawImage pendriveColorYellow;
+	public RawImage pendriveColorGreen;
+	public RawImage pendriveColorRed;
+
 	private AudioSource myAudio;
 
 	//pendrives
@@ -37,6 +43,16 @@ public class walkScript : MonoBehaviour {
 	bool penDrivesChecked;
 	public bool redPenDriveQuestion=false;
 	private GameObject redPenDriveGO;
+
+	//redpendrive alarm
+	private bool RPalarm;
+	private float redpendriveInitTime;
+	public int redpendriveSpan = 60;
+	private int redpendriveAlarmCounter;
+	public Text redpendriveAlarmCounterUI;
+	private GameObject[] enemies;
+	public AudioClip RPalarmSound;
+
 	private bool dead;
 	private bool pausedGame;
 
@@ -65,6 +81,8 @@ public class walkScript : MonoBehaviour {
 		playerImage.CrossFadeAlpha(0f,0f,true);
 
 		myTransform = transform;
+		redpendriveAlarmCounterUI.enabled = false;
+		enemies = GameObject.FindGameObjectsWithTag ("hideableBot");
 	}
 	
 	// Update is called once per frame
@@ -86,6 +104,33 @@ public class walkScript : MonoBehaviour {
 			StartCoroutine (RestartLevel(1.5f));
 			}
 		else{
+			if(RPalarm){
+				if (Input.GetKeyDown ("right ctrl")) {
+					Debug.Log ("pressed right ctrl");
+					if (redPenDrive) {
+						redPenDrive = false;
+						StartCoroutine(activateRPafter(TimeToEraseMsg));
+						redPenDriveGO.transform.position = myTransform.position+0.7f*Vector3.up;
+					}
+				} 
+				else {
+					//emits signal to draw all robots from time to time
+					if (Time.time - redpendriveInitTime >= 1) {
+						redpendriveAlarmCounter -= 1;
+						if (redpendriveAlarmCounter < 0) {
+							redpendriveAlarmCounter = redpendriveSpan;
+							if (redPenDrive) {
+								emitSignal2AttractRobots (myTransform.position);
+							} 
+							else {
+								emitSignal2AttractRobots (redPenDriveGO.transform.position);
+							}
+						}
+						redpendriveAlarmCounterUI.text = redpendriveAlarmCounter.ToString ();
+						redpendriveInitTime = Time.time;
+					}
+				}
+			}
 			if (redPenDriveQuestion) {			
 				if (Input.GetKeyDown ("y")) {
 					playermsgText.text = "red pen drive acquired, you better run, good luck";
@@ -93,6 +138,7 @@ public class walkScript : MonoBehaviour {
 					redPenDriveGO.SetActive (false);
 					Time.timeScale = 1;
 					redPenDriveQuestion = false;
+					initializeRPalarm ();
 					StartCoroutine(changePlayerMsg(""));
 				}
 				if (Input.GetKeyDown ("n")) {
@@ -102,11 +148,11 @@ public class walkScript : MonoBehaviour {
 					Time.timeScale = 1;
 					redPenDriveQuestion = false;
 					StartCoroutine(changePlayerMsg(""));
-					StartCoroutine(deactivateRedPenDrive4amoment());
+					StartCoroutine(activateRPafter(TimeToEraseMsg));
 				}
 
 			}
-			if(Input.GetKey("left shift") && (Input.GetKeyDown("w") || Input.GetKeyDown("up")))
+			if(Input.GetKeyDown("left shift"))
 				myTransform.Rotate(0f,180f,0f);
 
 			if (yellowPenDrive) {
@@ -140,6 +186,7 @@ public class walkScript : MonoBehaviour {
 				}
 				if (Input.GetKey (KeyCode.LeftControl)) {
 					anim.SetBool ("crouch", true);
+					vertIN = 0f;
 				} else {
 					anim.SetBool ("crouch", false);
 				}
@@ -150,11 +197,12 @@ public class walkScript : MonoBehaviour {
 					verticalSpeed = -verticalSpeedMax;
 			}
 
+
 			float forthSpeed;
 			if (vertIN > 0)
 				forthSpeed = forwardSpeed;
 			else
-				forthSpeed = forwardSpeed/2;
+				forthSpeed = forwardSpeed/2;			
 			myControl.Move(myTransform.forward * vertIN * forthSpeed*Time.deltaTime + myTransform.up*verticalSpeed*Time.deltaTime );
 
 			anim.speed = animSpeed;
@@ -169,8 +217,13 @@ public class walkScript : MonoBehaviour {
 				//CheckPenDrives
 				string msg;
 				if (redPenDrive && yellowPenDrive && greenPenDrive && purplePenDrive && bluePenDrive) {
-					msg = "Ok, You have all of the PenDrives!";
-					hit.gameObject.GetComponent<MainComputerDoor> ().openMainDoor = true;
+					if (enemiesInPursuit.Count > 0) {
+						msg = "Come back without robots in pursuit";
+					} 
+					else {
+						msg = "Ok, You have all of the PenDrives!";
+						hit.gameObject.GetComponent<MainComputerDoor> ().openMainDoor = true;
+					}
 				} else {
 					msg = "You do not have all of the PenDrives! Come Back when you do.";
 				}
@@ -185,6 +238,12 @@ public class walkScript : MonoBehaviour {
 			greenPenDrive=PickPenDrive (hit.gameObject, "greenPenDrive", greenPenDrive);
 			bluePenDrive=PickPenDrive (hit.gameObject, "bluePenDrive", bluePenDrive);
 			purplePenDrive=PickPenDrive (hit.gameObject, "purplePenDrive", purplePenDrive);
+
+			pendriveColorBlue.enabled = bluePenDrive;
+			pendriveColorPurple.enabled = purplePenDrive;
+			pendriveColorGreen.enabled = greenPenDrive;
+			pendriveColorYellow.enabled = yellowPenDrive;
+			pendriveColorRed.enabled = redPenDrive;
 		}
 	}
 	/*
@@ -201,8 +260,8 @@ public class walkScript : MonoBehaviour {
 		//Debug.Log (gameObject.name+"trigger with: "+other.gameObject.name);
 		if (other.gameObject.name == "mainDoorRegion") {
 			penDrivesChecked = false;
-			Debug.Log (gameObject.name+"check pendrives: "+other.gameObject.name);
-			playermsgText.text = "";
+			//Debug.Log (gameObject.name+"check pendrives: "+other.gameObject.name);
+			StartCoroutine (changePlayerMsg (""));
 		}
 
 	}
@@ -210,7 +269,7 @@ public class walkScript : MonoBehaviour {
 	bool PickPenDrive(GameObject testGO, string pendriveName, bool whichPenDrive){
 		if (testGO.name == pendriveName) {
 			if (pendriveName == "redPenDrive") {
-				playermsgText.text = "The red pendrive emits a signal attracting robots every 60 seconds";
+				playermsgText.text = "The red pendrive emits a signal attracting robots every "+redpendriveSpan.ToString()+" seconds";
 				StartCoroutine(changePlayerMsg("You sure you want to take the redPenDrive? (y) or (n)"));
 				redPenDriveQuestion = true;
 				redPenDriveGO = testGO;
@@ -235,8 +294,8 @@ public class walkScript : MonoBehaviour {
 		yield return new WaitForSecondsRealtime(TimeToEraseMsg);
 		playermsgText.text = msg;
 	}
-	IEnumerator deactivateRedPenDrive4amoment(){
-		yield return new WaitForSeconds(TimeToEraseMsg);
+	IEnumerator activateRPafter(float timeSpan){
+		yield return new WaitForSeconds(timeSpan);
 		redPenDriveGO.SetActive (true);
 	}
 
@@ -293,5 +352,23 @@ public class walkScript : MonoBehaviour {
 			myAudio.Play ();
 			Debug.Log ("current audio clip is " + myAudio.clip.ToString ());
 		}
+	}
+
+	void emitSignal2AttractRobots(Vector3 attractTo){
+		myAudio.PlayOneShot (RPalarmSound);
+		for (int i = 0; i < enemies.Length; i++) {
+			enemies [i].GetComponent<NavMeshAgent> ().SetDestination (attractTo);
+			enemies [i].GetComponent<robotPatrolUnit> ().hunterMode = robotPatrolUnit.hunterModes.hunt;
+			enemies [i].GetComponent<robotPatrolUnit> ().busy = false;
+			SoundAlarm (enemies[i].name);			
+		}
+	}
+	void initializeRPalarm(){
+		redpendriveInitTime = Time.time;
+		redpendriveAlarmCounterUI.enabled = true;
+		redpendriveAlarmCounter = redpendriveSpan;
+		redpendriveAlarmCounterUI.text = redpendriveAlarmCounter.ToString ();
+		RPalarm = true;
+		emitSignal2AttractRobots (myTransform.position);
 	}
 }

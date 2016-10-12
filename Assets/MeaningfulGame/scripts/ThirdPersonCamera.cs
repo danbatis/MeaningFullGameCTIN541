@@ -12,6 +12,9 @@ public class ThirdPersonCamera : MonoBehaviour {
 	public Transform target;			// the usual position for the camera, specified by a transform in the game
 	private Vector3 targetVirtual;
 	public float camDistance = 3.0f;
+	public float camDistanceClose = 1.0f;
+	public Transform playerBody;
+	public float approachCameraSpeed = 200.0f;
 	public float camHeight = 3.0f;
 
 	private Vector3 oldTargetForth;
@@ -22,6 +25,7 @@ public class ThirdPersonCamera : MonoBehaviour {
 		oldTargetForth = Vector3.zero;
 
 		target = GameObject.FindGameObjectWithTag ("Player").transform;
+		playerBody = GameObject.FindGameObjectWithTag("playerBody").transform;
 		if (target == null) {
 			Debug.Log ("Error! The targetPos was not assigned, ThirdPersonCamera script is deactivated!");
 			myTransform.GetComponent<ThirdPersonCamera> ().enabled = false;
@@ -30,14 +34,38 @@ public class ThirdPersonCamera : MonoBehaviour {
 
 	void FixedUpdate ()
 	{
+		/*
 		if (Input.GetKey ("left shift")) {
 			targetVirtual = target.position + camDistance * target.forward + camHeight*target.up;
 			myTransform.forward = Vector3.Lerp (myTransform.forward, -1 * target.forward, Time.deltaTime * smoothRot);	
 			Debug.Log ("pressing left shift");
 		} else {
-			targetVirtual = target.position - camDistance * target.forward + camHeight*target.up;
-			myTransform.forward = Vector3.Lerp (myTransform.forward, target.forward, Time.deltaTime * smoothRot);	
+		*/
+		float effectiveCamDistance = camDistance;
+		RaycastHit hit;
+		Debug.DrawLine(myTransform.position,playerBody.position, new Color(0f,1f,0f));
+		if (Physics.Raycast (myTransform.position, playerBody.position - myTransform.position, out hit)) {
+			//Debug.Log ("camera ray hiting: "+hit.transform.gameObject.name);
+			if (hit.transform.gameObject.tag == "Player") {
+				effectiveCamDistance += approachCameraSpeed*Time.deltaTime;
+				if (effectiveCamDistance >= camDistance)
+					effectiveCamDistance = camDistance;
+			} 
+			else {
+				effectiveCamDistance -= approachCameraSpeed*Time.deltaTime;
+				if (effectiveCamDistance <= camDistanceClose)
+					effectiveCamDistance = camDistanceClose;
+			}
 		}
+		else {
+			effectiveCamDistance -= approachCameraSpeed;
+			if (effectiveCamDistance <= camDistanceClose)
+				effectiveCamDistance = camDistanceClose;
+		}
+			
+		targetVirtual = target.position - effectiveCamDistance * target.forward + camHeight*target.up;
+		myTransform.forward = Vector3.Lerp (myTransform.forward, target.forward, Time.deltaTime * smoothRot);	
+		
 		myTransform.position = Vector3.Lerp (myTransform.position, targetVirtual, Time.deltaTime * smoothTrans);
 
 		oldTargetForth = target.forward;
