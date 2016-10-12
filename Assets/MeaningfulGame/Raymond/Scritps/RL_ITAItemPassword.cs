@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using CinemaDirector;
 
+[RequireComponent(typeof(AudioSource))]
 public class RL_ITAItemPassword : RL_ITAItemBase
 {
     [SerializeField]
@@ -24,6 +25,12 @@ public class RL_ITAItemPassword : RL_ITAItemBase
     private Cutscene bedroomCut02;
     private bool m_levelUp = false;
 
+    private AudioSource audioSrc;
+    [SerializeField]
+    private AudioClip passwordFailClip;
+    [SerializeField]
+    private AudioClip passwordSucceedClip;
+
     public override void Awake()
     {
         base.Awake();
@@ -39,6 +46,12 @@ public class RL_ITAItemPassword : RL_ITAItemBase
             Debug.LogError("Password Item has not been assigned the background (wrong)");
 
         backgroundWrong.enabled = false;
+
+        audioSrc = GetComponent<AudioSource>();
+        if (passwordFailClip == null)
+            Debug.LogError("Password Item has not been assigend the fail audio clip");
+        if (passwordSucceedClip == null)
+            Debug.LogError("Password Item has not been assigend the succeed audio clip");
     }
 
     public override void Update()
@@ -57,11 +70,17 @@ public class RL_ITAItemPassword : RL_ITAItemBase
                 {
                     backgroundOrigin.enabled = false;
                     backgroundWrong.enabled = true;
+
+                    audioSrc.clip = passwordFailClip;
+                    audioSrc.Play();
                 }
                 else
                 {
                     //Succeed in escaping!
                     StartCoroutine(LevelUpAnimation());
+
+                    audioSrc.clip = passwordSucceedClip;
+                    audioSrc.Play();
                 }
             }
             else

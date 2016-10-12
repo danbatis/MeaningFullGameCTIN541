@@ -1,9 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(AudioSource))]
 // Pseudo Singleton
 public class RL_GameManager : MonoBehaviour
 {
+    private AudioSource audioSrc;
+    [SerializeField]
+    private AudioClip exploreFailClip;
+    [SerializeField]
+    private AudioClip exploreSucceedClip;
+    [SerializeField]
+    private AudioClip checkClip;
+
     private static RL_GameManager m_instance;
     public static RL_GameManager Instance
     {
@@ -42,6 +51,14 @@ public class RL_GameManager : MonoBehaviour
     void Start()
     {
         m_instance = this;
+        audioSrc = GetComponent<AudioSource>();
+
+        if (exploreFailClip == null)
+            Debug.LogError("[Game Manager] Exploration Failed Clip not assigned");
+        if (exploreSucceedClip == null)
+            Debug.LogError("[Game Manager] Exploration Succeed Clip not assigned");
+        if (checkClip == null)
+            Debug.LogError("[Game Manager] Check Clip not assigned");
     }
 
     void Update()
@@ -65,6 +82,9 @@ public class RL_GameManager : MonoBehaviour
 
                     //controller.enabled = false;
                     controller.SetControllable(false);
+
+                    audioSrc.clip = checkClip;
+                    audioSrc.Play();
                 }
                 else
                 {
@@ -107,9 +127,20 @@ public class RL_GameManager : MonoBehaviour
 
                     // Find Something!!
                     if (m_curItemInField != null)
+                    {
                         m_curItemInField.Explored();
 
+                        audioSrc.clip = exploreSucceedClip;
+                        audioSrc.Play();
+                    }
+                    else
+                    {
+                        audioSrc.clip = exploreFailClip;
+                        audioSrc.Play();
+                    }
+
                     RL_UIManager.Instance.HideUI();
+
                 }
             }
 

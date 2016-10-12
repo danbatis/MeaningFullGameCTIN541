@@ -3,6 +3,7 @@ using System.Collections;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(AudioSource))]
 public class RL_MainCharacterController : MonoBehaviour
 {
     enum CharacterState
@@ -45,12 +46,14 @@ public class RL_MainCharacterController : MonoBehaviour
     private bool isControllable = true;
 
     private Animator anim;
+    private AudioSource audioSrc;
 
     void Awake()
     {
         moveDirection = transform.TransformDirection(Vector3.forward);
 
         anim = GetComponent<Animator>();
+        audioSrc = GetComponent<AudioSource>();
     }
 
     void UpdateSmoothedMovementDirection()
@@ -78,43 +81,47 @@ public class RL_MainCharacterController : MonoBehaviour
 
         bool wasMoving = isMoving;
         isMoving = Mathf.Abs(h) > 0.1f || Mathf.Abs(v) > 0.1f;
+        if (isMoving && !audioSrc.isPlaying)
+            audioSrc.Play();
+        if (!isMoving && audioSrc.isPlaying)
+            audioSrc.Stop();
 
         // Target direction relative to the camera
         Vector3 targetDirection = h * right + v * forward;
 
-            // Lock camera for short period when transitioning moving & standing still
-            lockCameraTimer += Time.deltaTime;
-            if (isMoving != wasMoving)
-                lockCameraTimer = 0.0f;
+        // Lock camera for short period when transitioning moving & standing still
+        lockCameraTimer += Time.deltaTime;
+        if (isMoving != wasMoving)
+            lockCameraTimer = 0.0f;
 
-            // We store speed and direction seperately,
-            // so that when the character stands still we still have a valid forward direction
-            // moveDirection is always normalized, and we only update it if there is user input.
-            if (targetDirection != Vector3.zero)
-            {
-                moveDirection = Vector3.RotateTowards(moveDirection, targetDirection, rotateSpeed * Mathf.Deg2Rad * Time.deltaTime, 1000);
+        // We store speed and direction seperately,
+        // so that when the character stands still we still have a valid forward direction
+        // moveDirection is always normalized, and we only update it if there is user input.
+        if (targetDirection != Vector3.zero)
+        {
+            moveDirection = Vector3.RotateTowards(moveDirection, targetDirection, rotateSpeed * Mathf.Deg2Rad * Time.deltaTime, 1000);
 
-                moveDirection = moveDirection.normalized;
+            moveDirection = moveDirection.normalized;
 
-            }
+        }
 
-            // Smooth the speed based on the current target direction
-            float curSmooth = speedSmoothing * Time.deltaTime;
+        // Smooth the speed based on the current target direction
+        float curSmooth = speedSmoothing * Time.deltaTime;
 
-            // Choose target speed
-            //* We want to support analog input but make sure you cant walk faster diagonally than just forward or sideways
-            float targetSpeed = Mathf.Min(targetDirection.magnitude, 1.0f);
+        // Choose target speed
+        //* We want to support analog input but make sure you cant walk faster diagonally than just forward or sideways
+        float targetSpeed = Mathf.Min(targetDirection.magnitude, 1.0f);
 
-            _characterState = CharacterState.Idle;
+        _characterState = CharacterState.Idle;
 
-            targetSpeed *= walkSpeed;
-            _characterState = CharacterState.Walking;
+        targetSpeed *= walkSpeed;
+        _characterState = CharacterState.Walking;
 
-            moveSpeed = Mathf.Lerp(moveSpeed, targetSpeed, curSmooth);
+        moveSpeed = Mathf.Lerp(moveSpeed, targetSpeed, curSmooth);
 
-            // Reset walk time start when we slow down
-            if (moveSpeed < walkSpeed * 0.3f)
-                walkTimeStart = Time.time;
+        // Reset walk time start when we slow down
+        if (moveSpeed < walkSpeed * 0.3f)
+            walkTimeStart = Time.time;
         
     }
 
@@ -209,6 +216,7 @@ public class RL_MainCharacterController : MonoBehaviour
 
             moveSpeed = 0.0f;
             isMoving = false;
+            audioSrc.Stop();
         }
     }
 }
