@@ -15,6 +15,7 @@ public class robotPatrolUnit : MonoBehaviour {
 	public float blindSearchTime=5.0f;
 	private bool blindSearch = false;
 	private float myTime;
+	public bool redpendrivemode;
 
 	public enum hunterModes{
 		patrol,
@@ -76,7 +77,10 @@ public class robotPatrolUnit : MonoBehaviour {
 									//hunt
 									if (Vector3.Distance (myTransform.position, target.position) > navAgent.stoppingDistance) {							
 										if (blindSearch) {
-											navAgent.SetDestination (target.position);
+									if (redpendrivemode)
+										navAgent.SetDestination (target.position);
+									else
+										returnToPatrolMode ();
 										} else {
 											Debug.Log ("Lost subject, blindSearch started");
 											blindSearch = true;
@@ -86,9 +90,12 @@ public class robotPatrolUnit : MonoBehaviour {
 									else{									
 										//End Game
 										Debug.Log ("Found and reached player, end game!");
-										anim.SetBool("crouch", true);
+										anim.SetBool("grab", true);
 										//Time.timeScale = 0;
-										target.GetComponent<walkScript> ().Die ("You were taken, try again");
+										if(target.GetComponent<walkScript>())
+											target.GetComponent<walkScript>().Die ("You were taken, try again");
+										else
+											returnToPatrolMode ();
 										//navAgent.SetDestination (spawnPoint);
 									}
 									break;
@@ -116,6 +123,7 @@ public class robotPatrolUnit : MonoBehaviour {
 	}
 
 	public void returnToPatrolMode(){
+		redpendrivemode = false;
 		target.GetComponent<walkScript> ().StopSoundAlarm (gameObject.name);
 		myRobotVisionScript.enabled = false;
 		haloRenderer.material = greenHaloMat;

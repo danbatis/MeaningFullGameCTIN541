@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class cameraCutScene : MonoBehaviour {
-
+	public bool finalAct;
 	private Transform playerTarget;
 	private Transform myTransform;
 	private GameObject mainCamera;
@@ -34,6 +35,13 @@ public class cameraCutScene : MonoBehaviour {
 	private AudioSource myAudio;
 	public AudioClip finalSceneEntrySound;
 
+	public Texture[] storyComics;
+	public RawImage comicsContainer;
+	public RawImage backgroundImage;
+	public Text playermsgText;
+	public float transitionTime=1.0f;
+	public float comicsTimeSpan = 2.0f;
+
 	// Use this for initialization
 	void Start () {		
 		myTransform = transform;
@@ -47,8 +55,12 @@ public class cameraCutScene : MonoBehaviour {
 		ownCamera.enabled = false;
 		ownAudioListener.enabled = false;
 
-		playerUI = GameObject.Find ("Canvas");
+		playerUI = GameObject.Find ("basicUI");
+		comicsContainer = GameObject.Find ("basicUI/fullImage").GetComponent<RawImage> ();
+		comicsContainer.enabled = false;
 		myAudio = GetComponent<AudioSource> ();
+		backgroundImage = GameObject.Find("basicUI/backgroundImage").GetComponent<RawImage>();
+		playermsgText = GameObject.Find("basicUI/playermsg").GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
@@ -82,6 +94,7 @@ public class cameraCutScene : MonoBehaviour {
 			RXbotGO = (GameObject)Instantiate(RXbot,botOrigin,botRotation);
 			//set navAgent destination
 			RXbotGO.GetComponent<NavMeshAgent>().SetDestination(MainComputerTransform.position);
+			RXbotGO.GetComponent<autoRXwalker> ().torchLight.SetActive (finalAct);
 			virtualTarget = RXbotGO.transform;
 			StartCoroutine (switch2MainPcScreen());
 			activated = true;
@@ -96,14 +109,33 @@ public class cameraCutScene : MonoBehaviour {
 
 	IEnumerator switch2MainPcScreen(){
 		playerUI.SetActive(false);
+		playermsgText.enabled = false;
 		yield return new WaitForSeconds(switch2MainPcScreenTime);
 		activated = false;
 		transitioning = true;
+		backgroundImage.enabled = true;
+		comicsContainer.enabled = true;
+		playerUI.SetActive(true);
+		backgroundImage.CrossFadeAlpha (1.0f,transitionTime,true);
+		yield return new WaitForSeconds (transitionTime);
 
-		smoothTrans = smoothTransII;
-		virtualTarget = MainComputerScreen;
+		if (!finalAct) {
+			comicsContainer.enabled = true;
+			for (int i = 0; i < storyComics.Length; i++) {				
+				comicsContainer.texture = storyComics [i];
+				backgroundImage.CrossFadeAlpha (0.0f,transitionTime,true);
+				yield return new WaitForSeconds (comicsTimeSpan+transitionTime);
+				backgroundImage.CrossFadeAlpha (1.0f,transitionTime,true);
+				yield return new WaitForSeconds (transitionTime);
+			}
+			Application.LoadLevel (endSceneName);
+		} 
+		else {
+			smoothTrans = smoothTransII;
+			virtualTarget = MainComputerScreen;
 
-		yield return new WaitForSeconds(interactionDuration);
-		Application.LoadLevel (endSceneName);
+			yield return new WaitForSeconds (interactionDuration);
+			Application.LoadLevel (endSceneName);
+		}
 	}
 }

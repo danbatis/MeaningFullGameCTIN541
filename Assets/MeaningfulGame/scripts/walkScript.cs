@@ -7,9 +7,15 @@ using System.Collections.Generic;
 [RequireComponent(typeof(CharacterController))]
 
 public class walkScript : MonoBehaviour {
+	public bool blueNotimportant;
+	public bool purpleNotimportant;
+	public bool yellowNotimportant;
+	public bool greenNotimportant;
+	public bool redNotimportant;
 
 	public float rotateSpeed=10.0f;
 	public float forwardSpeed=10.0f;
+	public float limitForthSpeed=0.5f;
 
 	private Animator anim;   
 	public float animSpeed = 1.5f;              // a public setting for overall animator animation speed
@@ -25,12 +31,13 @@ public class walkScript : MonoBehaviour {
 	private float vertIN = 0f;                // setup v variables as our vertical input axis
 
 	public Text playermsgText;
-	public RawImage playerImage;
+	public RawImage backgroundImage;
 	public RawImage pendriveColorBlue;
 	public RawImage pendriveColorPurple;
 	public RawImage pendriveColorYellow;
 	public RawImage pendriveColorGreen;
 	public RawImage pendriveColorRed;
+	public RawImage keysImg;
 
 	private AudioSource myAudio;
 
@@ -71,7 +78,7 @@ public class walkScript : MonoBehaviour {
 
 	public List<string> enemiesInPursuit;
 	private dogWalker myDog;
-	public GameObject highlightRed;
+	public RawImage highlightRed;
 
 	// Use this for initialization
 	void Start () {
@@ -81,13 +88,27 @@ public class walkScript : MonoBehaviour {
 		myAudio = GetComponent<AudioSource> ();
 		myDog = GameObject.FindGameObjectWithTag ("dogGuide").GetComponent<dogWalker>();
 
-
+		torchLight = GameObject.Find (gameObject.name+"/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:Neck/mixamorig:Head/RebeccaTorchLight");
 		if (!torchLight)
 			Debug.Log ("The torch light element must be assigned!");
-		
+
+		//UI
+		playermsgText = GameObject.Find("basicUI/playermsg").GetComponent<Text>();
+		backgroundImage = GameObject.Find("basicUI/backgroundImage").GetComponent<RawImage>();
+		pendriveColorBlue = GameObject.Find ("basicUI/pendriveColorBlue").GetComponent<RawImage> ();
+		pendriveColorPurple = GameObject.Find ("basicUI/pendriveColorPurple").GetComponent<RawImage> ();
+		pendriveColorYellow = GameObject.Find ("basicUI/pendriveColorYellow").GetComponent<RawImage> ();
+		pendriveColorGreen = GameObject.Find ("basicUI/pendriveColorGreen").GetComponent<RawImage> ();
+		pendriveColorRed = GameObject.Find ("basicUI/pendriveColorRed").GetComponent<RawImage> ();
+		redpendriveAlarmCounterUI = GameObject.Find ("basicUI/alarmCounterUI").GetComponent<Text> ();
+		highlightRed = GameObject.Find ("basicUI/highlightRed").GetComponent<RawImage> ();
+		keysImg = GameObject.Find ("basicUI/keysImage").GetComponent<RawImage> ();
+
 		playermsgText.text = "";
-		//playerImage.enabled = false;
-		playerImage.CrossFadeAlpha(0f,0f,true);
+		//backgroundImage.enabled = false;
+		backgroundImage.CrossFadeAlpha(0f,0f,true);
+		highlightRed.enabled =false;
+		keysImg.enabled = false;
 
 		myTransform = transform;
 		redpendriveAlarmCounterUI.enabled = false;
@@ -97,25 +118,27 @@ public class walkScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown("escape")){
+		if(Input.GetKeyDown("escape") || Input.GetKeyDown(KeyCode.JoystickButton7) ){
 			if (pausedGame) {
 				pausedGame = false;
 				Time.timeScale = 1;
+				keysImg.enabled = false;
 			} else {
 				pausedGame = true;
 				Time.timeScale = 0;
+				keysImg.enabled = true;
 			}
 
 		}
 
 		if (dead) {
 			playermsgText.enabled = true;
-			playerImage.CrossFadeAlpha (1.0f,1.0f,true);
+			backgroundImage.CrossFadeAlpha (1.0f,1.0f,true);
 			StartCoroutine (RestartLevel(1.5f));
 			}
 		else{
 			if(RPalarm){
-				if (Input.GetKeyDown ("right ctrl")) {
+				if (Input.GetKeyDown ("right ctrl") || Input.GetKeyDown(KeyCode.JoystickButton5)) {
 					Debug.Log ("pressed right ctrl");
 					if (redPenDrive) {
 						redPenDrive = false;
@@ -164,7 +187,7 @@ public class walkScript : MonoBehaviour {
 				}
 
 			}
-			if(Input.GetKeyDown("left shift"))
+			if(Input.GetKeyDown("left shift") || Input.GetKeyDown(KeyCode.JoystickButton1))
 				myTransform.Rotate(0f,180f,0f);
 
 			if (yellowPenDrive) {
@@ -186,10 +209,9 @@ public class walkScript : MonoBehaviour {
 				}
 			} else {
 				vertIN = Input.GetAxis("Vertical");
-				anim.SetFloat("samuraiForthSpeed", vertIN);
 			}
 			if (myControl.isGrounded) {
-				if (Input.GetKeyDown ("space")) {
+				if (Input.GetKeyDown ("space") || Input.GetKeyDown(KeyCode.JoystickButton0)) {
 					verticalSpeed = verticalSpeedMax;
 					inAir = true;
 					anim.SetFloat("samuraiForthSpeed", 0f);
@@ -197,7 +219,7 @@ public class walkScript : MonoBehaviour {
 					anim.SetBool ("JumpDown",false);
 					myAudio.PlayOneShot (jumpSound);
 				}
-				if (Input.GetKey (KeyCode.LeftControl)) {
+				if (Input.GetKey (KeyCode.LeftControl) || Input.GetKey(KeyCode.JoystickButton4)) {
 					anim.SetBool ("crouch", true);
 					myAudio.PlayOneShot (crouchSound);
 					vertIN = 0f;
@@ -214,18 +236,26 @@ public class walkScript : MonoBehaviour {
 
 			float forthSpeed;
 			if (vertIN > 0) {
+				if (vertIN >= limitForthSpeed)
+					vertIN = limitForthSpeed;
 				forthSpeed = forwardSpeed;
-				myAudio.Play();
+				if(!myAudio.isPlaying)
+					myAudio.Play();
 			} 
 			else {
 				if (vertIN == 0) {
 					forthSpeed = 0;
 					myAudio.Stop();
 				} else {
+					if (vertIN <= -limitForthSpeed)
+						vertIN = -limitForthSpeed;
+					
 					forthSpeed = forwardSpeed / 2;
-					myAudio.Play();
+					if(!myAudio.isPlaying)
+						myAudio.Play();
 				}
 			}
+			anim.SetFloat("samuraiForthSpeed", vertIN);
 			myControl.Move(myTransform.forward * vertIN * forthSpeed*Time.deltaTime + myTransform.up*verticalSpeed*Time.deltaTime );
 
 			anim.speed = animSpeed;
@@ -239,7 +269,7 @@ public class walkScript : MonoBehaviour {
 			if (!penDrivesChecked) {				
 				//CheckPenDrives
 				string msg;
-				if (redPenDrive && yellowPenDrive && greenPenDrive && purplePenDrive && bluePenDrive) {
+				if ((redPenDrive || redNotimportant) && (yellowPenDrive || yellowNotimportant) && (greenPenDrive || greenNotimportant) && (purplePenDrive || purpleNotimportant) && (bluePenDrive || blueNotimportant) ) {
 					/*
 					if (enemiesInPursuit.Count > 0) {
 						msg = "Come back without robots in pursuit";
@@ -249,10 +279,22 @@ public class walkScript : MonoBehaviour {
 						hit.gameObject.GetComponent<MainComputerDoor> ().openMainDoor = true;
 					}
 					*/
-					msg = "Ok, You have all of the PenDrives!";
-					hit.gameObject.GetComponent<MainComputerDoor> ().openMainDoor = true;
+					msg = "Good Job!";
+					hit.gameObject.GetComponent<MainComputerDoor> ().OpenMainDoor ();
 				} else {
-					msg = "You do not have all of the PenDrives! Come Back when you do.";
+					msg = "You do not have: ";
+					if (!blueNotimportant && !bluePenDrive)
+						msg += "| Blue |";
+					if(!yellowNotimportant && !yellowPenDrive)
+						msg+= "| Yellow |"; 
+					if (!purpleNotimportant && !purplePenDrive)
+						msg += "|Purple |";
+					if (!greenNotimportant && !greenPenDrive)
+						msg += "| Green |";
+					if (!redNotimportant && !redPenDrive)
+						msg += "| Red |";
+
+					msg += " PenDrives! Come Back when you do.";
 				}
 				Debug.Log (msg);
 				playermsgText.text = msg;
@@ -369,7 +411,7 @@ public class walkScript : MonoBehaviour {
 
 			myAudio.clip = alarmSound;
 			myAudio.Play();
-			highlightRed.SetActive (true);
+			highlightRed.enabled = true;
 
 			//Debug.Log("current audio clip is "+myAudio.clip.ToString());
 		}
@@ -380,7 +422,7 @@ public class walkScript : MonoBehaviour {
 			myAudio.Stop ();
 			myAudio.clip = walkSound;
 
-			highlightRed.SetActive (false);
+			highlightRed.enabled =false;
 			Debug.Log ("current audio clip is " + myAudio.clip.ToString ());
 
 		}
@@ -392,6 +434,7 @@ public class walkScript : MonoBehaviour {
 			enemies [i].GetComponent<NavMeshAgent> ().SetDestination (attractTo);
 			enemies [i].GetComponent<robotPatrolUnit> ().hunterMode = robotPatrolUnit.hunterModes.hunt;
 			enemies [i].GetComponent<robotPatrolUnit> ().busy = false;
+			enemies [i].GetComponent<robotPatrolUnit> ().redpendrivemode = RPalarm;
 			SoundAlarm (enemies[i].name);			
 		}
 	}

@@ -13,6 +13,8 @@ public class hideBotDoorOperator : MonoBehaviour {
 	public bool openHideDoor;
 	public bool closeHideDoor;
 
+	public int openDirection=1;
+
 	private AudioSource myAudio;
 
 	public enum doorAxes{
@@ -47,42 +49,58 @@ public class hideBotDoorOperator : MonoBehaviour {
 			myAudio.Play ();
 			switch(doorAxe){
 				case doorAxes.x:
-				currCoord -= openSpeed * Time.deltaTime;
+				currCoord -= openDirection*openSpeed * Time.deltaTime;
 				transform.position = new Vector3(currCoord,transform.position.y,transform.position.z);
 				break;
 				case doorAxes.y:
-				currCoord -= openSpeed * Time.deltaTime;
+				currCoord -= openDirection*openSpeed * Time.deltaTime;
 				transform.position = new Vector3(transform.position.x,currCoord,transform.position.z);
 				break;
 				case doorAxes.z:
-				currCoord -= openSpeed * Time.deltaTime;
+				currCoord -= openDirection*openSpeed * Time.deltaTime;
 				transform.position = new Vector3(transform.position.x,transform.position.y,currCoord);
 				break;
 
 			}
-			if (currCoord <= closedCoord - slideAmplitude) {
-				hideDoorOpened = true;
-				openHideDoor = false;
+			if (openDirection > 0) {
+				if (currCoord <= closedCoord - slideAmplitude) {
+					hideDoorOpened = true;
+					openHideDoor = false;
+				}
+			} 
+			else {
+				if (currCoord >= closedCoord + slideAmplitude) {
+					hideDoorOpened = true;
+					openHideDoor = false;
+				}
 			}
 		}
 		if (closeHideDoor && hideDoorOpened) {
 			switch(doorAxe){
 			case doorAxes.x:
-				currCoord += openSpeed * Time.deltaTime;
+				currCoord += openDirection*openSpeed * Time.deltaTime;
 				transform.position = new Vector3(currCoord,transform.position.y,transform.position.z);
 				break;
 			case doorAxes.y:
-				currCoord += openSpeed * Time.deltaTime;
+				currCoord += openDirection*openSpeed * Time.deltaTime;
 				transform.position = new Vector3(transform.position.x,currCoord,transform.position.z);
 				break;
 			case doorAxes.z:
-				currCoord += openSpeed * Time.deltaTime;
+				currCoord += openDirection*openSpeed * Time.deltaTime;
 				transform.position = new Vector3(transform.position.x,transform.position.y,currCoord);
 				break;
 			}
-			if (currCoord >= closedCoord) {
-				hideDoorOpened = false;
-				closeHideDoor = false;
+			if (openDirection > 0) {
+				if (currCoord >= closedCoord) {
+					hideDoorOpened = false;
+					closeHideDoor = false;
+				}
+			} 
+			else {
+				if (currCoord <= closedCoord) {
+					hideDoorOpened = false;
+					closeHideDoor = false;
+				}
 			}
 		}
 	}

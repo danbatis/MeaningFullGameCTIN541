@@ -138,6 +138,6 @@ public class RL_ITAItemPassword : RL_ITAItemBase
     }
     public void LevelUp()
     {
-        SceneManager.LoadScene("maze");
+		SceneManager.LoadScene("4the_dog");
     }
 }

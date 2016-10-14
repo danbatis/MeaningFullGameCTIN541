@@ -6,12 +6,17 @@ public class autoRXwalker : MonoBehaviour {
 	NavMeshAgent navAgent;
 	private Animator anim;   
 	public float walkAnimTreshold = 0.5f;
+	public GameObject torchLight;
 
 	// Use this for initialization
 	void Start () {
 		navAgent = GetComponent<NavMeshAgent> ();	
 		anim = GetComponent<Animator>();
 		anim.SetFloat("samuraiForthSpeed", walkAnimTreshold);
+	}
+
+	void Awake(){
+		torchLight = GameObject.Find (gameObject.name+"/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:Neck/mixamorig:Head/RebeccaTorchLight");
 	}
 	
 	// Update is called once per frame

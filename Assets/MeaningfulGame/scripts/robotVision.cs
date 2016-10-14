@@ -56,6 +56,7 @@ public class robotVision : MonoBehaviour {
 		if (Vector3.Angle (eyeTransform.forward, projFloor) <= visionAngle) {			
 			//Debug.Log (gameObject.name + " Found Player, checking angle: less than...");
 			navAgent.SetDestination (targetPosition);
+			myRobotPatrolScript.target = hit.transform.root;
 			myRobotPatrolScript.hunterMode = robotPatrolUnit.hunterModes.hunt;
 			myRobotPatrolScript.target.GetComponent<walkScript> ().SoundAlarm (gameObject.name);
 			myRobotPatrolScript.busy = false;

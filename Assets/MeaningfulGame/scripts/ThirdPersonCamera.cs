@@ -3,13 +3,11 @@ using System.Collections;
 
 public class ThirdPersonCamera : MonoBehaviour {
 	
-	public float smoothRot = 10.0f;		// a public variable to adjust smoothing of camera rotation
-	public float smoothTrans = 3.0f;		// a public variable to adjust smoothing of camera motion
-
-	public float rotSens = 1.0f;			// a public variable to adjust when to start rotating the camera
+	public float smoothRot = 10.0f;
+	public float smoothTrans = 15.0f;
 
 	private Transform myTransform;
-	public Transform target;			// the usual position for the camera, specified by a transform in the game
+	public Transform target;
 	private Vector3 targetVirtual;
 	public float camDistance = 3.0f;
 	public float camDistanceClose = 1.0f;
