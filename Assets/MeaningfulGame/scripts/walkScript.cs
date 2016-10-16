@@ -30,14 +30,14 @@ public class walkScript : MonoBehaviour {
 	public bool inAir=false;
 	private float vertIN = 0f;                // setup v variables as our vertical input axis
 
-	public Text playermsgText;
-	public RawImage backgroundImage;
-	public RawImage pendriveColorBlue;
-	public RawImage pendriveColorPurple;
-	public RawImage pendriveColorYellow;
-	public RawImage pendriveColorGreen;
-	public RawImage pendriveColorRed;
-	public RawImage keysImg;
+	private Text playermsgText;
+	private RawImage backgroundImage;
+	private RawImage pendriveColorBlue;
+	private RawImage pendriveColorPurple;
+	private RawImage pendriveColorYellow;
+	private RawImage pendriveColorGreen;
+	private RawImage pendriveColorRed;
+	private RawImage keysImg;
 
 	private AudioSource myAudio;
 
@@ -65,6 +65,9 @@ public class walkScript : MonoBehaviour {
 	public AudioClip crouchSound;
 	public AudioClip jumpSound;
 	public AudioClip walkSound;
+	public AudioClip runSound;
+	public float pitchRunSound=0.8f;
+	public float pitchWalkSound=1.15f;
 	public AudioClip dropItemSound;
 	public AudioClip obtainItemSound;
 
@@ -113,6 +116,7 @@ public class walkScript : MonoBehaviour {
 		myTransform = transform;
 		redpendriveAlarmCounterUI.enabled = false;
 		enemies = GameObject.FindGameObjectsWithTag ("hideableBot");
+		myAudio.pitch = 1.0f;
 		myAudio.PlayOneShot (restartSound);
 	}
 	
@@ -145,6 +149,7 @@ public class walkScript : MonoBehaviour {
 						StartCoroutine(activateRPafter(TimeToEraseMsg));
 						redPenDriveGO.transform.position = myTransform.position+0.7f*Vector3.up;
 						myDog.currentGuidePoint = 4;
+						myAudio.pitch = 1.0f;
 						myAudio.PlayOneShot (dropItemSound);
 					}
 				} 
@@ -217,10 +222,12 @@ public class walkScript : MonoBehaviour {
 					anim.SetFloat("samuraiForthSpeed", 0f);
 					anim.SetBool ("JumpUp",true);
 					anim.SetBool ("JumpDown",false);
+					myAudio.pitch = 1.0f;
 					myAudio.PlayOneShot (jumpSound);
 				}
 				if (Input.GetKey (KeyCode.LeftControl) || Input.GetKey(KeyCode.JoystickButton4)) {
 					anim.SetBool ("crouch", true);
+					myAudio.pitch = 1.0f;
 					myAudio.PlayOneShot (crouchSound);
 					vertIN = 0f;
 				} else {
@@ -239,8 +246,17 @@ public class walkScript : MonoBehaviour {
 				if (vertIN >= limitForthSpeed)
 					vertIN = limitForthSpeed;
 				forthSpeed = forwardSpeed;
-				if(!myAudio.isPlaying)
-					myAudio.Play();
+				if (!myAudio.isPlaying) {
+					if (vertIN > 0.5) {
+						myAudio.pitch = pitchRunSound;
+						myAudio.clip = runSound;
+					} 
+					else {
+						myAudio.clip = walkSound;
+						myAudio.pitch = pitchWalkSound;
+					}
+					myAudio.Play ();
+				}
 			} 
 			else {
 				if (vertIN == 0) {
@@ -251,6 +267,8 @@ public class walkScript : MonoBehaviour {
 						vertIN = -limitForthSpeed;
 					
 					forthSpeed = forwardSpeed / 2;
+					myAudio.clip = walkSound;
+					myAudio.pitch = 1.0f;
 					if(!myAudio.isPlaying)
 						myAudio.Play();
 				}

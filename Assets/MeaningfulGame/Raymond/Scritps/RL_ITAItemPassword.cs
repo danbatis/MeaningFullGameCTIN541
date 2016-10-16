@@ -45,6 +45,7 @@ public class RL_ITAItemPassword : RL_ITAItemBase
         if (backgroundWrong == null)
             Debug.LogError("Password Item has not been assigned the background (wrong)");
 
+		backgroundOrigin.enabled = true;
         backgroundWrong.enabled = false;
 
         audioSrc = GetComponent<AudioSource>();
@@ -112,7 +113,8 @@ public class RL_ITAItemPassword : RL_ITAItemBase
 
         if (on)
         {
-            
+			eventSystem.SetSelectedGameObject(null);
+			Debug.Log ("tchan, inside checking, on=true");
         }
         else
         {
@@ -121,6 +123,7 @@ public class RL_ITAItemPassword : RL_ITAItemBase
             backgroundOrigin.enabled = true;
             backgroundWrong.enabled = false;
             passwordInputField.text = "";
+			Debug.Log ("tchan, inside checking, on=false");
         }
     }
 

@@ -39,7 +39,7 @@ public class RL_GameManager : MonoBehaviour
     }
 
     [SerializeField]
-    private float exploreInverval = 1.0f;
+    public float exploreInverval = 1.0f;
 
     private RL_ITAItemBase m_curItemInField;
     public RL_ITAItemBase CurItemInField
@@ -71,7 +71,7 @@ public class RL_GameManager : MonoBehaviour
             GameObject.FindGameObjectWithTag("Player").GetComponent<RL_MainCharacterController>();
 
         // Process Input (the order is crucial)
-        if (Input.GetKeyDown(KeyCode.RightControl) || Input.GetKeyDown(KeyCode.LeftControl))
+		if (Input.GetKeyDown(KeyCode.RightControl) || Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.JoystickButton5) )
         {
             if (m_curItemInField != null && m_curItemInField.CanBeChecked)
             {
@@ -99,7 +99,7 @@ public class RL_GameManager : MonoBehaviour
             return;
         }
 
-        if (Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl))
+		if (Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.JoystickButton5))
         {
             // Freeze movement (tempory)
             //controller.enabled = false;
@@ -147,7 +147,7 @@ public class RL_GameManager : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyUp(KeyCode.RightControl) || Input.GetKeyUp(KeyCode.LeftControl))
+		if (Input.GetKeyUp(KeyCode.RightControl) || Input.GetKeyUp(KeyCode.LeftControl) || Input.GetKeyUp(KeyCode.JoystickButton5))
         {
             if (m_status != EStatus.Checking)
                 // Free movement (tempory)

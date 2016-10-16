@@ -1,14 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\MeaningfulGame\Raymond\Scritps\ThirdPersonController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\MeaningfulGame\scripts\ThirdPersonCamera.cs">
     <Files>
-      <File FileName="Assets\MeaningfulGame\scripts\MainComputerDoor.cs" Line="74" Column="12" />
-      <File FileName="Assets\MeaningfulGame\scripts\robotPatrolUnit.cs" Line="1" Column="1" />
-      <File FileName="Assets\MeaningfulGame\scripts\walkScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\MeaningfulGame\scripts\cameraCutScene.cs" Line="1" Column="1" />
-      <File FileName="Assets\MeaningfulGame\scripts\ThirdPersonCamera.cs" Line="1" Column="1" />
-      <File FileName="Assets\MeaningfulGame\scripts\hideBotDoorOperator.cs" Line="1" Column="1" />
-      <File FileName="Assets\MeaningfulGame\Raymond\Scritps\ThirdPersonController.cs" Line="297" Column="29" />
+      <File FileName="Assets\MeaningfulGame\scripts\walkScript.cs" Line="219" Column="33" />
+      <File FileName="Assets\MeaningfulGame\scripts\MainComputerDoor.cs" Line="1" Column="1" />
+      <File FileName="Assets\MeaningfulGame\scripts\ThirdPersonCamera.cs" Line="17" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

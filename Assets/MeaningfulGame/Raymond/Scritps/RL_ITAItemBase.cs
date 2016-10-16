@@ -23,7 +23,7 @@ public class RL_ITAItemBase : MonoBehaviour
     {
         get { return m_status == EStatus.Highlighted; }
     }
-    protected bool m_isExplored = false;
+    protected bool m_isExplored = true;
 
     public virtual void Awake()
     {

@@ -32,8 +32,9 @@ public class MainComputerDoor : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (openMainDoor && !MainDoorOpened) {			
-			myAudio.Play ();
+		if (openMainDoor && !MainDoorOpened) {		
+			if(!myAudio.isPlaying)	
+				myAudio.Play ();
 			currCoord -= openSpeed * Time.deltaTime;
 			switch (doorAxe) {
 			case doorAxes.x:

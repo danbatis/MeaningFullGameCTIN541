@@ -89,7 +89,7 @@ public class RL_UIManager : MonoBehaviour
 
     public void ShowUI(string name)
     {
-        blurEffect.enabled = true;
+        blurEffect.enabled = false;
 
         switch (name)
         {

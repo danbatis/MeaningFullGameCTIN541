@@ -76,6 +76,7 @@ public class hideBotDoorOperator : MonoBehaviour {
 			}
 		}
 		if (closeHideDoor && hideDoorOpened) {
+			myAudio.Play ();
 			switch(doorAxe){
 			case doorAxes.x:
 				currCoord += openDirection*openSpeed * Time.deltaTime;
