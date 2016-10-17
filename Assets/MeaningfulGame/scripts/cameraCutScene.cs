@@ -116,10 +116,10 @@ public class cameraCutScene : MonoBehaviour {
 		backgroundImage.enabled = true;
 		comicsContainer.enabled = true;
 		playerUI.SetActive(true);
-		backgroundImage.CrossFadeAlpha (1.0f,transitionTime,true);
-		yield return new WaitForSeconds (transitionTime);
 
 		if (!finalAct) {
+			backgroundImage.CrossFadeAlpha (1.0f,transitionTime,true);
+			yield return new WaitForSeconds (transitionTime);
 			comicsContainer.enabled = true;
 			for (int i = 0; i < storyComics.Length; i++) {				
 				comicsContainer.texture = storyComics [i];
@@ -131,6 +131,7 @@ public class cameraCutScene : MonoBehaviour {
 			Application.LoadLevel (endSceneName);
 		} 
 		else {
+			playerUI.SetActive(false);
 			smoothTrans = smoothTransII;
 			virtualTarget = MainComputerScreen;
 

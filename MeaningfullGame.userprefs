@@ -1,10 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\MeaningfulGame\scripts\ThirdPersonCamera.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\MeaningfulGame\scripts\cameraCutScene.cs">
     <Files>
       <File FileName="Assets\MeaningfulGame\scripts\walkScript.cs" Line="219" Column="33" />
       <File FileName="Assets\MeaningfulGame\scripts\MainComputerDoor.cs" Line="1" Column="1" />
-      <File FileName="Assets\MeaningfulGame\scripts\ThirdPersonCamera.cs" Line="17" Column="2" />
+      <File FileName="Assets\MeaningfulGame\scripts\ThirdPersonCamera.cs" Line="1" Column="1" />
+      <File FileName="Assets\MeaningfulGame\scripts\cameraCutScene.cs" Line="134" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

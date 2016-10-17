@@ -222,6 +222,7 @@ public class walkScript : MonoBehaviour {
 					anim.SetFloat("samuraiForthSpeed", 0f);
 					anim.SetBool ("JumpUp",true);
 					anim.SetBool ("JumpDown",false);
+                    myAudio.Stop();
 					myAudio.pitch = 1.0f;
 					myAudio.PlayOneShot (jumpSound);
 				}
